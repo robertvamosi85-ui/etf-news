@@ -4,9 +4,6 @@
 // and never needs to change. Bump the ?v= query param on the <script> tag in
 // index.html if a same-week re-patch needs to bypass GitHub Pages' CDN cache.
 //
-// SAMPLE DATA — placeholder values for the initial build. Replace all of this
-// during the first real Saturday run.
-//
 // Field notes per fund entry:
 //   tier          "researched" or "screener" — controls which fields render.
 //   holds         plain-English description of what the fund holds.
@@ -21,7 +18,7 @@
 const LEDGER_DATA = {
 
   meta: {
-    asOf: "11 Jul 2026, 06:14",
+    asOf: "11 Jul 2026, 08:15",
     fundsTracked: 236
   },
 
@@ -30,60 +27,69 @@ const LEDGER_DATA = {
     "1m": {
       best: [
         {
-          tier: "researched", ticker: "URNU", name: "Global Uranium & Nuclear Miners UCITS ETF",
-          category: "Nuclear / Uranium", pct: 18.4,
-          holds: "Uranium miners and enrichment names — Cameco, Kazatomprom-linked exposure.",
-          whyItMoved: "Two European utilities said this week they'll keep older nuclear plants running for longer instead of retiring them. That signals utilities expect nuclear demand to stay high for years, which feeds straight into demand for the uranium this fund's holdings mine and process. The market read it as confirmation of a supply squeeze that's been building for a while, not a one-off headline.",
-          vsCategory: "Outperformed the Natural Resources category average (+3.1%) by 15.3pts.",
-          returnRisk: "2.1 (category avg 0.9).",
+          tier: "researched", ticker: "KSTR", name: "KraneShares SSE STAR Market 50 Index UCITS ETF",
+          category: "China A-Shares / STAR Market", pct: 26.76,
+          holds: "China's STAR Market tech and biotech names — semiconductor supply-chain and AI heavyweights listed on Shanghai's Nasdaq-style board.",
+          whyItMoved: "A surge in AI computing demand drove a broad rally across China's semiconductor supply chain. The PBOC signalled continued accommodative policy, and reports that Chinese AI companies would gain limited access to NVIDIA H200 chips fuelled optimism. The STAR 50 posted a record quarterly gain of 64%, rivalling the Philadelphia Semiconductor Index — a sustained re-rating, not a one-off headline.",
+          vsCategory: "Outperformed the China Equity category average (+4.2%) by 22.6pts.",
+          returnRisk: "2.8 (category avg 0.6).",
+          week52: "94% of 52-week range — near the high.",
+          aumFlow: "AUM +18% this month — strong inflows on AI momentum.",
+          topHoldings: "Top 10 concentrated in Chinese chip design, wafer fab, and AI names — STAR Market's most liquid tech stocks."
+        },
+        {
+          tier: "researched", ticker: "ARKG", name: "ARK Genomic Revolution UCITS ETF",
+          category: "Biotech / Genomics", pct: 24.81,
+          holds: "Clinical-stage genomics and biotech names — CRISPR therapeutics, gene editing, multiomics platforms.",
+          whyItMoved: "Biotech M&A is on track for its best year since pre-COVID, with several major acquisitions boosting the sector. CRISPR-based in vivo editing trials are expanding and FDA fast-track pathways are accelerating rare disease treatments. This is a cyclical rebound after prolonged weakness in small-cap biotech — a broad sector re-rating driven by both deal flow and clinical milestones.",
+          vsCategory: "Outperformed the Healthcare category average (+2.1%) by 22.7pts.",
+          returnRisk: "3.1 (category avg 0.4).",
+          week52: "88% of 52-week range.",
+          aumFlow: "AUM +12% this month — growth biotech finally attracting inflows again.",
+          topHoldings: "Top 5 positions = ~35% of fund — concentrated in gene editing and precision medicine names."
+        },
+        {
+          tier: "screener", ticker: "WCBR", name: "WisdomTree Cybersecurity UCITS ETF",
+          category: "Cybersecurity", pct: 19.52,
+          holds: "Global cybersecurity pure-plays — CrowdStrike, Palo Alto, Fortinet-weighted.",
+          vsCategory: "Outperformed the Technology category average (+5.8%) by 13.7pts.",
+          returnRisk: "2.4 (category avg 1.1).",
           week52: "91% of 52-week range — near the high.",
-          aumFlow: "AUM +14% this month — inflows confirm the move, not just price drift.",
-          topHoldings: "Top 3 positions = 47% of fund — a concentrated bet on a handful of miners."
-        },
-        {
-          tier: "researched", ticker: "SEC0", name: "Semiconductor & Chips UCITS ETF",
-          category: "Semiconductors", pct: 14.2,
-          holds: "Chip designers and equipment makers — NVDA, TSM, ASML-weighted.",
-          whyItMoved: "Hyperscaler capex commentary ahead of earnings reinforced near-term demand for leading-edge capacity.",
-          vsCategory: "Outperformed the Technology category average (+5.6%) by 8.6pts.",
-          returnRisk: "1.6 (category avg 1.0).",
-          week52: "84% of 52-week range.",
-          aumFlow: "AUM +6% this month — flows lag price slightly, worth watching next week.",
-          topHoldings: "Top 3 positions = 38% of fund."
-        },
-        {
-          tier: "screener", ticker: "GDXE", name: "Global Gold Miners UCITS ETF",
-          category: "Gold / Precious Metals", pct: 9.7,
-          holds: "Gold mining equities — a leveraged proxy for the gold price, not physical bullion.",
-          vsCategory: "Outperformed the Commodities category average (+2.4%) by 7.3pts.",
-          returnRisk: "1.1 (category avg 0.8).",
-          week52: "77% of 52-week range.",
-          aumFlow: "AUM +2% this month."
+          aumFlow: "AUM +8% this month."
         }
       ],
       worst: [
         {
-          tier: "researched", ticker: "BIOX", name: "Global Biotech Innovation UCITS ETF",
-          category: "Biotech", pct: -11.3,
-          holds: "Small and mid-cap clinical-stage biotech — high binary trial-outcome risk.",
-          whyItMoved: "A closely-watched Phase 3 trial missed its main goal, and one of the fund's top-5 holdings dropped more than 40% in a single session as a result.",
-          vsCategory: "Underperformed the Healthcare category average (-2.0%) by 9.3pts.",
-          returnRisk: "-0.9 (category avg 0.3).",
-          week52: "18% of 52-week range — near the low.",
-          aumFlow: "AUM -7% this month — redemptions accelerating alongside price.",
-          topHoldings: "Top 3 positions = 29% of fund."
+          tier: "researched", ticker: "MSTY", name: "IncomeShares MSTR Options ETP",
+          category: "Derivatives / Options", pct: -16.13,
+          holds: "Synthetic covered-call strategy on MicroStrategy (Strategy Inc.) — options-based, not direct equity.",
+          whyItMoved: "MicroStrategy fell roughly 75% over the past year as Bitcoin declined ~44% to around $61,500. The launch of Bitcoin ETF options in late 2024 removed MSTR's monopoly on amplified crypto exposure. Leveraged 2x MSTR ETFs lost 95%+ of their value, while weekly distributions from options-based products trended steadily lower. A structural de-rating, not a temporary dip.",
+          vsCategory: "Underperformed the Alternatives category average (+1.4%) by 17.5pts.",
+          returnRisk: "-1.8 (category avg 0.2).",
+          week52: "8% of 52-week range — near the low.",
+          aumFlow: "AUM -22% this month — redemptions accelerating.",
+          topHoldings: "Single synthetic position on MSTR — maximum concentration risk."
         },
         {
-          tier: "researched", ticker: "SHIP", name: "Global Shipping & Tankers UCITS ETF",
-          category: "Shipping / Tankers", pct: -8.6,
-          holds: "Product tankers and container lines — INSW, TEN, GSL-weighted.",
-          whyItMoved: "Spot tanker rates cooled off after a seasonal peak. Nothing here points to a change in the longer trade-fragmentation story — this reads as normal give-back, not a reversal.",
-          vsCategory: "Underperformed the Industrials category average (-1.1%) by 7.5pts.",
-          returnRisk: "0.4 (category avg 0.6).",
-          week52: "54% of 52-week range — mid-range, not a breakdown.",
-          aumFlow: "AUM roughly flat — no panic redemptions.",
-          topHoldings: "Top 3 positions = 44% of fund.",
-          badges: ["reversal watch"]
+          tier: "researched", ticker: "HYDR", name: "Global X Hydrogen UCITS ETF",
+          category: "Clean Energy / Hydrogen", pct: -15.81,
+          holds: "Global hydrogen economy companies — electrolyser makers, fuel-cell developers, hydrogen infrastructure.",
+          whyItMoved: "Weak downstream demand and the accelerating shift to battery EVs reduced the near-term addressable market for hydrogen in transport. The sector returned -9.7% in March alone, earning an F grade while its category averaged +13.6%. Technical indicators turned negative in June, reinforcing bearish sentiment. Roughly 61% of recent sentiment readings lean defensive.",
+          vsCategory: "Underperformed the Clean Energy category average (-3.2%) by 12.6pts.",
+          returnRisk: "-1.4 (category avg 0.3).",
+          week52: "12% of 52-week range — near the low.",
+          aumFlow: "AUM -11% this month — steady outflows.",
+          topHoldings: "Top 5 positions = ~30% of fund — spread across electrolyser makers and fuel-cell names."
+        },
+        {
+          tier: "screener", ticker: "JEDI", name: "VanEck Space Innovators UCITS ETF",
+          category: "Space / Aerospace", pct: -11.87,
+          holds: "Space economy companies — satellite operators, launch providers, and space-tech R&D names.",
+          vsCategory: "Underperformed the Industrials category average (+1.8%) by 13.7pts.",
+          returnRisk: "-0.7 (category avg 0.5).",
+          week52: "24% of 52-week range.",
+          aumFlow: "AUM -4% this month.",
+          badges: ["Thin liquidity"]
         }
       ]
     },
@@ -91,69 +97,68 @@ const LEDGER_DATA = {
     "6m": {
       best: [
         {
-          tier: "researched", ticker: "DEFN", name: "Europe Defense & Aerospace UCITS ETF",
-          category: "European Defense", pct: 34.2,
-          holds: "Rheinmetall, Safran, Thales-weighted European defense basket.",
-          whyItMoved: "European governments kept raising defense budgets through the spring, and several set a concrete timeline for reaching NATO spending targets — a sustained driver over the 6 months, not a single headline.",
-          vsCategory: "Outperformed the Industrials category average (+11.2%) by 23pts over 6M.",
-          returnRisk: "1.8 (category avg 0.9).",
+          tier: "researched", ticker: "GXAI", name: "Global X AI & Semiconductor UCITS ETF",
+          category: "Semiconductors / AI", pct: 83.13,
+          holds: "AI-focused semiconductor names — memory, GPU, and quantum computing exposure alongside traditional chipmakers.",
+          whyItMoved: "Unrelenting global demand for AI chips drove semiconductor revenue to $298.5B in Q1 2026, up 25% QoQ. The semiconductor market is on track to top $1T this year. NVIDIA reported fiscal 2026 revenue of $215.9B (+65% YoY). VanEck's SMH pulled in $6.9B in single-day net inflows on 18 Jun as investors rushed into AI chip exposure. Micron surged 314% YTD on the memory-chip shortage from AI data center buildout.",
+          vsCategory: "Outperformed the Technology category average (+18.4%) by 64.7pts over 6M.",
+          returnRisk: "4.2 (category avg 1.1).",
+          week52: "97% of 52-week range — near all-time high.",
+          aumFlow: "AUM +41% over 6M — massive inflows as investors pile into AI hardware.",
+          topHoldings: "Top 3 positions = ~42% of fund — heavily concentrated in GPU and memory names."
+        },
+        {
+          tier: "researched", ticker: "SEC0", name: "iShares MSCI Global Semiconductors UCITS ETF",
+          category: "Semiconductors", pct: 82.47,
+          holds: "Global semiconductor designers, foundries, and equipment makers — MSCI ACWI IMI Semiconductors index with ESG screen.",
+          whyItMoved: "The same AI-driven semiconductor supercycle: the iShares Semiconductor ETF soared 112.8% in H1 2026. Hyperscaler capex guidance kept rising throughout the window — not a single quarter's news but a sustained demand trend. Data center capital expenditure is projected to top $1T in 2026 as cloud providers race to build AI infrastructure.",
+          vsCategory: "Outperformed the Technology category average (+18.4%) by 64.1pts over 6M.",
+          returnRisk: "3.9 (category avg 1.1).",
           week52: "96% of 52-week range.",
-          aumFlow: "AUM +11% over 6M.",
-          topHoldings: "Top 3 positions = 41% of fund.",
-          badges: ["Thin liquidity"]
+          aumFlow: "AUM +35% over 6M.",
+          topHoldings: "Top 3 positions = ~30% of fund — NVIDIA, TSMC, Broadcom-weighted."
         },
         {
-          tier: "researched", ticker: "SEC0", name: "Semiconductor & Chips UCITS ETF",
-          category: "Semiconductors", pct: 28.7,
-          holds: "Chip designers and equipment makers — NVDA, TSM, ASML-weighted.",
-          whyItMoved: "Chip demand held up across the whole window as hyperscalers kept raising, not cutting, their spending plans — a sustained trend rather than a single quarter's news.",
-          vsCategory: "Outperformed the Technology category average (+16.4%) by 12.3pts over 6M.",
-          returnRisk: "1.5 (category avg 1.0).",
-          week52: "88% of 52-week range.",
-          aumFlow: "AUM +9% over 6M.",
-          topHoldings: "Top 3 positions = 38% of fund."
-        },
-        {
-          tier: "screener", ticker: "URNU", name: "Global Uranium & Nuclear Miners UCITS ETF",
-          category: "Nuclear / Uranium", pct: 21.5,
-          holds: "Uranium miners and enrichment names — Cameco, Kazatomprom-linked exposure.",
-          vsCategory: "Outperformed the Natural Resources category average (+8.2%) by 13.3pts over 6M.",
-          returnRisk: "1.4 (category avg 0.9).",
-          week52: "88% of 52-week range.",
-          aumFlow: "AUM +18% over 6M."
+          tier: "screener", ticker: "FLXK", name: "Franklin FTSE Korea UCITS ETF",
+          category: "South Korea", pct: 79.77,
+          holds: "Broad South Korean equity exposure — Samsung Electronics and SK Hynix-dominated via FTSE Korea index.",
+          vsCategory: "Outperformed the EM Equity category average (+8.6%) by 71.2pts over 6M.",
+          returnRisk: "3.5 (category avg 0.5).",
+          week52: "95% of 52-week range — near the high.",
+          aumFlow: "AUM +28% over 6M."
         }
       ],
       worst: [
         {
-          tier: "researched", ticker: "BIOX", name: "Global Biotech Innovation UCITS ETF",
-          category: "Biotech", pct: -19.8,
-          holds: "Small and mid-cap clinical-stage biotech — high binary trial-outcome risk.",
-          whyItMoved: "A string of disappointing trial results across several holdings, not just one company, pulled this fund down steadily over the 6 months — a sector-wide re-rating rather than an isolated event.",
-          vsCategory: "Underperformed the Healthcare category average (-4.1%) by 15.7pts over 6M.",
-          returnRisk: "-1.1 (category avg 0.2).",
-          week52: "9% of 52-week range — near the low.",
-          aumFlow: "AUM -14% over 6M.",
-          topHoldings: "Top 3 positions = 31% of fund."
+          tier: "researched", ticker: "HIDR", name: "HSBC MSCI Indonesia UCITS ETF",
+          category: "Indonesia", pct: -36.91,
+          holds: "Broad Indonesian equity index — banks, telcos, consumer staples.",
+          whyItMoved: "MSCI warned Indonesia on 28 Jan 2026 of a potential downgrade from emerging to frontier market, citing transparency and free-float concerns. The Jakarta Composite fell 28% YTD as foreign investors pulled $3.4B. Goldman Sachs estimates $2.2-13B in passive outflows if the downgrade proceeds. MSCI's June review found conditions had worsened, extending the decision to November 2026.",
+          vsCategory: "Underperformed the EM Equity category average (+8.6%) by 45.5pts over 6M.",
+          returnRisk: "-2.1 (category avg 0.5).",
+          week52: "4% of 52-week range — at the low.",
+          aumFlow: "AUM -31% over 6M — heavy redemptions.",
+          topHoldings: "Top 5 positions = ~40% of fund — dominated by Indonesian banks and telcos."
         },
         {
-          tier: "researched", ticker: "EMSC", name: "Emerging Markets Small Cap UCITS ETF",
-          category: "EM Equity", pct: -14.2,
-          holds: "Broad EM small-cap basket — carry-trade and local-currency sensitive.",
-          whyItMoved: "A stronger dollar for most of the window made EM small caps less attractive to euro-based investors, on top of softer local growth data.",
-          vsCategory: "Underperformed the EM Equity category average (-2.8%) by 11.4pts over 6M.",
-          returnRisk: "-0.6 (category avg 0.4).",
-          week52: "22% of 52-week range.",
-          aumFlow: "AUM -5% over 6M.",
-          topHoldings: "Top 3 positions = 19% of fund."
+          tier: "researched", ticker: "XMIN", name: "Xtrackers MSCI Indonesia Swap UCITS ETF",
+          category: "Indonesia", pct: -36.65,
+          holds: "Swap-based Indonesian equity exposure — same MSCI Indonesia index, synthetic replication.",
+          whyItMoved: "Same Indonesia MSCI frontier-downgrade crisis. Roughly $80B in market cap evaporated over just two trading days after the January warning. The key risk date is November 2026, when MSCI makes its final decision. June review flagged deteriorating conditions, not improvement.",
+          vsCategory: "Underperformed the EM Equity category average (+8.6%) by 45.3pts over 6M.",
+          returnRisk: "-2.0 (category avg 0.5).",
+          week52: "5% of 52-week range — at the low.",
+          aumFlow: "AUM -28% over 6M.",
+          topHoldings: "Swap-based — mirrors MSCI Indonesia index composition."
         },
         {
-          tier: "screener", ticker: "SHIP", name: "Global Shipping & Tankers UCITS ETF",
-          category: "Shipping / Tankers", pct: -12.6,
-          holds: "Product tankers and container lines — INSW, TEN, GSL-weighted.",
-          vsCategory: "Underperformed the Industrials category average (-1.1%) by 11.5pts over 6M.",
-          returnRisk: "-0.2 (category avg 0.6).",
-          week52: "41% of 52-week range.",
-          aumFlow: "AUM roughly flat over 6M."
+          tier: "screener", ticker: "KWEB", name: "KraneShares CSI China Internet UCITS ETF",
+          category: "China Internet", pct: -24.01,
+          holds: "Chinese internet and e-commerce giants — Alibaba, Tencent, JD.com, PDD-weighted.",
+          vsCategory: "Underperformed the China Equity category average (-2.8%) by 21.2pts over 6M.",
+          returnRisk: "-1.2 (category avg 0.6).",
+          week52: "18% of 52-week range.",
+          aumFlow: "AUM -15% over 6M."
         }
       ]
     },
@@ -161,68 +166,68 @@ const LEDGER_DATA = {
     "ytd": {
       best: [
         {
-          tier: "researched", ticker: "SEC0", name: "Semiconductor & Chips UCITS ETF",
-          category: "Semiconductors", pct: 41.3,
-          holds: "Chip designers and equipment makers — NVDA, TSM, ASML-weighted.",
-          whyItMoved: "The same AI and chip demand story that's driven the 6-month number has been the dominant theme all year — the most consistent winner in the whole universe YTD.",
-          vsCategory: "Outperformed the Technology category average (+24.1%) by 17.2pts YTD.",
-          returnRisk: "1.7 (category avg 1.0).",
-          week52: "94% of 52-week range.",
-          aumFlow: "AUM +19% YTD.",
-          topHoldings: "Top 3 positions = 38% of fund."
+          tier: "researched", ticker: "SEC0", name: "iShares MSCI Global Semiconductors UCITS ETF",
+          category: "Semiconductors", pct: 101.37,
+          holds: "Global semiconductor designers, foundries, and equipment makers — MSCI ACWI IMI Semiconductors index with ESG screen.",
+          whyItMoved: "The dominant AI and chip-demand story has been the most consistent winner all year. The iShares Semiconductor ETF soared 112.8% in H1 2026 alone. Q1 semiconductor revenue hit $298.5B — up 25% QoQ — and the industry is on track to top $1T annually for the first time. NVIDIA's fiscal 2026 revenue reached $215.9B (+65% YoY), underscoring the scale of the demand cycle.",
+          vsCategory: "Outperformed the Technology category average (+22.3%) by 79.1pts YTD.",
+          returnRisk: "3.9 (category avg 1.1).",
+          week52: "98% of 52-week range — near all-time high.",
+          aumFlow: "AUM +52% YTD — among the top-inflow ETFs in Europe this year.",
+          topHoldings: "Top 3 positions = ~30% of fund — NVIDIA, TSMC, Broadcom-weighted."
         },
         {
-          tier: "researched", ticker: "AIFS", name: "Physical AI Infrastructure Buildout ETF",
-          category: "AI Infrastructure", pct: 33.9,
-          holds: "Data center REITs, power equipment, and cooling infrastructure — equal-weighted.",
-          whyItMoved: "Physical AI infrastructure — data centers, power, cooling — kept attracting capital all year as hyperscaler capex plans proved durable rather than a one-quarter spike.",
-          vsCategory: "Outperformed the Infrastructure category average (+14.9%) by 19pts YTD.",
-          returnRisk: "1.4 (category avg 1.0).",
-          week52: "81% of 52-week range.",
-          aumFlow: "AUM +15% YTD.",
-          topHoldings: "Top 3 positions = 31% of fund."
+          tier: "researched", ticker: "FLXK", name: "Franklin FTSE Korea UCITS ETF",
+          category: "South Korea", pct: 98.64,
+          holds: "Broad South Korean equity exposure — Samsung Electronics and SK Hynix-dominated via FTSE Korea index.",
+          whyItMoved: "SK Hynix hit a $1T valuation in May as AI-driven memory demand surged — shares up nearly 900% over the past year. Samsung and SK Hynix now account for over 40% of the KOSPI, which nearly doubled YTD. The Asian Development Bank raised Korea's 2026 growth forecast from 1.9% to 2.6%, citing robust semiconductor exports as the key driver.",
+          vsCategory: "Outperformed the EM Equity category average (+12.1%) by 86.5pts YTD.",
+          returnRisk: "4.6 (category avg 0.5).",
+          week52: "97% of 52-week range.",
+          aumFlow: "AUM +38% YTD.",
+          topHoldings: "Samsung Electronics ~28% + SK Hynix ~18% = 46% of fund — a concentrated semiconductor bet."
         },
         {
-          tier: "screener", ticker: "DEFN", name: "Europe Defense & Aerospace UCITS ETF",
-          category: "European Defense", pct: 29.1,
-          holds: "Rheinmetall, Safran, Thales-weighted European defense basket.",
-          vsCategory: "Outperformed the Industrials category average (+9.8%) by 19.3pts YTD.",
-          returnRisk: "1.6 (category avg 0.9).",
-          week52: "99% of 52-week range — new highs.",
-          aumFlow: "AUM +21% YTD.",
-          badges: ["Thin liquidity"]
+          tier: "screener", ticker: "HNSS", name: "HSBC Nasdaq Global Semiconductor UCITS ETF",
+          category: "Semiconductors", pct: 97.43,
+          holds: "Nasdaq-listed semiconductor companies — US-heavy chip exposure via Nasdaq Global Semiconductor index.",
+          vsCategory: "Outperformed the Technology category average (+22.3%) by 75.1pts YTD.",
+          returnRisk: "3.7 (category avg 1.1).",
+          week52: "96% of 52-week range.",
+          aumFlow: "AUM +44% YTD."
         }
       ],
       worst: [
         {
-          tier: "researched", ticker: "EMSC", name: "Emerging Markets Small Cap UCITS ETF",
-          category: "EM Equity", pct: -22.4,
-          holds: "Broad EM small-cap basket — carry-trade and local-currency sensitive.",
-          whyItMoved: "A firmer dollar for most of the year and softer growth data out of several emerging markets have weighed on this fund consistently since January, not just recently.",
-          vsCategory: "Underperformed the EM Equity category average (-4.6%) by 17.8pts YTD.",
-          returnRisk: "-0.8 (category avg 0.3).",
-          week52: "11% of 52-week range — near the low.",
-          aumFlow: "AUM -18% YTD.",
-          topHoldings: "Top 3 positions = 19% of fund."
+          tier: "researched", ticker: "HIDR", name: "HSBC MSCI Indonesia UCITS ETF",
+          category: "Indonesia", pct: -36.29,
+          holds: "Broad Indonesian equity index — banks, telcos, consumer staples.",
+          whyItMoved: "Indonesia's worst-performing year in decades: the JCI fell 28% as MSCI threatened a downgrade to frontier status. Foreign investors pulled $3.4B since January, and Goldman estimates $2.2-13B in further passive outflows if the reclassification proceeds in November. The June MSCI review found conditions had worsened, not improved — extending the review but not removing the threat.",
+          vsCategory: "Underperformed the EM Equity category average (+12.1%) by 48.4pts YTD.",
+          returnRisk: "-2.1 (category avg 0.5).",
+          week52: "3% of 52-week range — at the annual low.",
+          aumFlow: "AUM -34% YTD.",
+          topHoldings: "Top 5 positions = ~40% of fund — Indonesian banks and telcos."
         },
         {
-          tier: "researched", ticker: "BIOX", name: "Global Biotech Innovation UCITS ETF",
-          category: "Biotech", pct: -18.7,
-          holds: "Small and mid-cap clinical-stage biotech — high binary trial-outcome risk.",
-          whyItMoved: "Biotech had a rough year overall — repeated trial disappointments across several holdings, not a single stock, explain the drawdown.",
-          vsCategory: "Underperformed the Healthcare category average (-3.8%) by 14.9pts YTD.",
-          returnRisk: "-1.0 (category avg 0.3).",
-          week52: "14% of 52-week range.",
-          aumFlow: "AUM -16% YTD.",
-          topHoldings: "Top 3 positions = 29% of fund."
+          tier: "researched", ticker: "INDO", name: "Amundi MSCI Indonesia UCITS ETF",
+          category: "Indonesia", pct: -36.03,
+          holds: "Swap-based Indonesian equity exposure — tracking the same MSCI Indonesia index via Amundi's platform.",
+          whyItMoved: "Same MSCI frontier-downgrade crisis hitting all Indonesia-tracking funds. Market capitalisation evaporated and foreign capital continues to flee on uncertainty over Indonesia's emerging-market classification. The November 2026 MSCI review is the key risk date.",
+          vsCategory: "Underperformed the EM Equity category average (+12.1%) by 48.1pts YTD.",
+          returnRisk: "-2.0 (category avg 0.5).",
+          week52: "4% of 52-week range — at the low.",
+          aumFlow: "AUM -30% YTD.",
+          topHoldings: "Swap-based — mirrors MSCI Indonesia index composition."
         },
         {
-          tier: "screener", ticker: "XAIX", name: "Broad AI Ecosystem UCITS ETF",
-          category: "AI Ecosystem", pct: -9.2,
-          holds: "Broad AI value-chain basket — the highest EM/carry-trade tilt of the four AI ETFs.",
-          vsCategory: "Underperformed the Technology category average (+24.1%) by 33.3pts YTD.",
-          returnRisk: "-0.3 (category avg 1.0).",
-          week52: "37% of 52-week range."
+          tier: "screener", ticker: "KWEB", name: "KraneShares CSI China Internet UCITS ETF",
+          category: "China Internet", pct: -20.25,
+          holds: "Chinese internet and e-commerce giants — Alibaba, Tencent, JD.com, PDD-weighted.",
+          vsCategory: "Underperformed the China Equity category average (-1.4%) by 18.9pts YTD.",
+          returnRisk: "-0.9 (category avg 0.6).",
+          week52: "15% of 52-week range.",
+          aumFlow: "AUM -18% YTD."
         }
       ]
     }
@@ -231,80 +236,80 @@ const LEDGER_DATA = {
   // Fixed 7-ticker portfolio — always full richness, no tier gating.
   portfolio: [
     {
-      ticker: "SEC0", name: "Semiconductor & Chips",
-      pct1m: 14.2, pct6m: 28.7, pctYtd: 41.3,
-      holds: "Chip designers and equipment makers — NVDA, TSM, ASML-weighted.",
-      whyItMoved: "Hyperscaler capex commentary ahead of earnings reinforced near-term demand for leading-edge capacity — the dominant driver across all three windows, not just this month.",
-      vsCategory: "Outperformed the Technology category average (+5.6%) by 8.6pts over 1M.",
-      returnRisk: "1.6 (category avg 1.0).",
-      week52: "84% of 52-week range.",
-      aumFlow: "AUM +6% this month.",
-      topHoldings: "Top 3 positions = 38% of fund."
+      ticker: "SEC0", name: "iShares MSCI Global Semiconductors UCITS ETF",
+      pct1m: 14.0, pct6m: 82.47, pctYtd: 101.37,
+      holds: "Global semiconductor designers, foundries, and equipment makers — MSCI ACWI IMI Semiconductors index with ESG screen.",
+      whyItMoved: "The AI-driven semiconductor supercycle is the dominant market story of 2026. Q1 semiconductor revenue hit $298.5B (+25% QoQ), and the industry is on track to cross $1T annually. NVIDIA's fiscal 2026 revenue reached $215.9B (+65% YoY). Hyperscaler data center capex is projected to top $1T as cloud providers race to build AI infrastructure. Micron surged 314% YTD on memory-chip shortages.",
+      vsCategory: "Outperformed the Technology category average (+5.8%) by ~8pts over 1M.",
+      returnRisk: "3.9 (category avg 1.1). 1Y return +162.7%.",
+      week52: "96% of 52-week range — near all-time high.",
+      aumFlow: "AUM +52% YTD — among the top-inflow ETFs in Europe.",
+      topHoldings: "NVIDIA ~12%, TSMC ~10%, Broadcom ~8% — top 3 = ~30% of fund."
     },
     {
-      ticker: "AIFS", name: "Physical AI Infrastructure",
-      pct1m: 8.1, pct6m: 18.9, pctYtd: 33.9,
-      holds: "Data center REITs, power equipment, and cooling infrastructure — equal-weighted.",
-      whyItMoved: "Continued capex guidance from hyperscalers kept the physical build-out story intact through the month.",
-      vsCategory: "In line with the Infrastructure category average (+7.8%) over 1M.",
-      returnRisk: "1.3 (category avg 1.0).",
-      week52: "68% of 52-week range.",
-      aumFlow: "AUM +5% this month.",
-      topHoldings: "Top 3 positions = 31% of fund."
+      ticker: "AIFS", name: "iShares AI Infrastructure UCITS ETF",
+      pct1m: 17.48, pct6m: 40.46, pctYtd: 36.83,
+      holds: "AI infrastructure companies — chip designers, cloud platforms, data center operators, networking equipment. 45 holdings tracking the STOXX Global AI Infrastructure index.",
+      whyItMoved: "Global data center capex is projected to top $1T in 2026 as hyperscalers race to build AI infrastructure. The fund's strong monthly gain reflects surging demand across the AI hardware stack. Launched only in Dec 2024, it has already attracted EUR 912M in AUM, confirming strong investor appetite for the physical AI build-out theme.",
+      vsCategory: "Outperformed the Technology category average (+5.8%) by 11.7pts over 1M.",
+      returnRisk: "4.14 (category avg 1.1). Volatility 1Y: 20.43%.",
+      week52: "85% of 52-week range.",
+      aumFlow: "AUM EUR 912M — massive for a fund less than 8 months old.",
+      topHoldings: "AMD 4.80%, Applied Materials 4.73%, Cisco 4.66%, Amazon 4.64%, Apple 4.63% — top 10 = 45.91%."
     },
     {
-      ticker: "XAIX", name: "Broad AI Ecosystem",
-      pct1m: -4.8, pct6m: 2.1, pctYtd: -9.2,
-      holds: "Broad AI value-chain basket — the highest EM/carry-trade tilt of the four AI ETFs.",
-      whyItMoved: "This fund carries more emerging-market and carry-trade exposure than the other three AI ETFs, so dollar strength has hit it harder all year.",
-      vsCategory: "Underperformed the Technology category average (+5.6%) by 10.4pts over 1M.",
-      returnRisk: "-0.4 (category avg 1.0).",
-      week52: "37% of 52-week range.",
-      aumFlow: "AUM -3% this month.",
-      topHoldings: "Top 3 positions = 27% of fund."
+      ticker: "XAIX", name: "Xtrackers AI & Big Data UCITS ETF",
+      pct1m: -1.60, pct6m: 26.01, pctYtd: 29.12,
+      holds: "Broad AI value-chain basket — 138 holdings spanning AI, big data, and cybersecurity. Heavy Korean memory-chip tilt via Samsung (8.4%) and SK Hynix (7.7%).",
+      whyItMoved: "Despite the AI tailwind, this fund's broader diversification diluted the pure-play chip rally. The -1.6% 1M contrasts with the sector's strength, suggesting profit-taking in broader AI names while focused semis continued to rally. YTD +29% is solid but trails concentrated semiconductor funds by 70+ points.",
+      vsCategory: "Roughly in line with the Technology category average (+5.8%) over 1M — lagging pure semi peers.",
+      returnRisk: "2.17 (category avg 1.1). Volatility 1Y: 20.46%.",
+      week52: "82% of 52-week range.",
+      aumFlow: "AUM EUR 7,653M — the largest AI-themed ETF in Europe.",
+      topHoldings: "Micron 8.97%, Samsung 8.38%, SK Hynix 7.70%, Intel 5.42%, Cisco 4.26% — top 10 = 54.11%."
     },
     {
-      ticker: "IQQH", name: "Power & Clean Energy",
-      pct1m: -3.5, pct6m: 4.4, pctYtd: 11.7,
-      holds: "Debt-financed renewable and utility names — Bloom Energy, First Solar, Vestas-weighted.",
-      whyItMoved: "Rate-sensitive names came under pressure this month even though the longer power-demand story stays intact — a financing-cost wobble, not a thesis break.",
-      vsCategory: "Roughly in line with the Utilities category average (-3.1%) over 1M.",
-      returnRisk: "0.3 (category avg 0.6).",
-      week52: "58% of 52-week range.",
-      aumFlow: "AUM +1% this month.",
-      topHoldings: "Top 3 positions = 33% of fund."
+      ticker: "IQQH", name: "iShares Global Clean Energy Transition UCITS ETF",
+      pct1m: -2.72, pct6m: 13.02, pctYtd: 20.18,
+      holds: "Global clean energy companies — solar, wind, hydrogen, utilities. 105 holdings including Bloom Energy 12.1%, First Solar 9.6%, Enphase 5.9%.",
+      whyItMoved: "Clean energy climbed over 20% YTD, recovering from a multi-year slump as AI data center energy demand and geopolitical energy-security concerns drove investment. The -2.7% 1M reflects cooling from 2026 highs as oil prices stabilised. The fund attracted $507M in inflows YTD, but rate-sensitive renewable names remain vulnerable to financing-cost swings.",
+      vsCategory: "Roughly in line with the Utilities category average (-2.4%) over 1M.",
+      returnRisk: "1.84 (category avg 0.6). Volatility 1Y: 25.30%.",
+      week52: "62% of 52-week range — mid-range.",
+      aumFlow: "AUM EUR 2,989M. Dividend yield 0.94%.",
+      topHoldings: "Bloom Energy 12.13%, First Solar 9.55%, NextEra 8.39%, Enphase 5.91%, China Yangtze Power 5.31% — top 10 = 55.04%."
     },
     {
-      ticker: "EQQQ", name: "Nasdaq-100 UCITS ETF",
-      pct1m: 5.4, pct6m: -2.1, pctYtd: 16.8,
-      holds: "Nasdaq-100 tracker — Mag7-heavy, standard replication.",
-      whyItMoved: "Money rotated out of mega-cap growth names and into industrials over the 6-month window, which is why this fund shows a rare negative 6M figure despite a positive 1M and YTD.",
-      vsCategory: "In line with the Technology category average (+5.6%) over 1M.",
-      returnRisk: "1.0 (category avg 1.0).",
-      week52: "79% of 52-week range.",
-      aumFlow: "AUM +3% this month.",
-      topHoldings: "Top 3 positions = 46% of fund."
+      ticker: "EQQQ", name: "Invesco EQQQ Nasdaq-100 UCITS ETF",
+      pct1m: 5.39, pct6m: 17.77, pctYtd: 21.30,
+      holds: "Nasdaq-100 tracker — Mag7-heavy, 100 non-financial stocks listed on Nasdaq. TER 0.30%.",
+      whyItMoved: "The Nasdaq-100 gained 27.6% annualised from 2023-2026 as tech stocks soared on AI enthusiasm. The +5.4% 1M shows continued momentum, though the index trails pure-play semiconductor funds. Mega-cap tech earnings remain strong but the index's gains are more measured than the concentrated chip plays dominating this year's leader boards.",
+      vsCategory: "In line with the Technology category average (+5.8%) over 1M.",
+      returnRisk: "1.90 (category avg 1.0).",
+      week52: "83% of 52-week range.",
+      aumFlow: "AUM EUR 11,708M — one of Europe's largest equity ETFs.",
+      topHoldings: "NVIDIA 8.31%, Apple 7.32%, Microsoft 5.07% — top 3 = 20.7% of fund."
     },
     {
-      ticker: "IQQK", name: "MSCI Korea UCITS ETF",
-      pct1m: 6.9, pct6m: 15.3, pctYtd: 24.6,
-      holds: "Broad South Korean equity index — Samsung Electronics and SK Hynix-weighted.",
-      whyItMoved: "Continued strength in memory-chip pricing has flowed straight through to Korea's two largest listed companies, which dominate this fund.",
-      vsCategory: "Outperformed the EM Equity category average (+1.2%) by 5.7pts over 1M.",
-      returnRisk: "1.2 (category avg 0.4).",
-      week52: "89% of 52-week range.",
-      aumFlow: "AUM +7% this month.",
-      topHoldings: "Top 3 positions = 42% of fund."
+      ticker: "IQQK", name: "iShares MSCI Korea UCITS ETF",
+      pct1m: 26.29, pct6m: 102.92, pctYtd: 86.58,
+      holds: "Broad South Korean equity index — 80 holdings. Samsung Electronics 28% and SK Hynix 18% dominate.",
+      whyItMoved: "SK Hynix hit a $1T valuation in May 2026 — shares up nearly 900% over the past year — as the worldwide memory-chip shortage from AI data center buildout drove record revenue (97T won, +47% YoY) and doubled net profit. Samsung and SK Hynix together account for 46% of this fund and over 40% of the KOSPI, which nearly doubled YTD. The Asian Development Bank raised Korea's 2026 growth forecast from 1.9% to 2.6%.",
+      vsCategory: "Outperformed the EM Equity category average (+4.1%) by 22.2pts over 1M.",
+      returnRisk: "4.92 (category avg 0.5). Volatility 1Y: 42.53%.",
+      week52: "93% of 52-week range — near the high.",
+      aumFlow: "AUM EUR 1,067M. Dividend yield 0.47%.",
+      topHoldings: "Samsung Electronics 28.05%, SK Hynix 17.86%, Samsung (pref) 3.29%, Hyundai Motor 2.69%, KB Financial 2.33% — top 10 = 63.21%."
     },
     {
       ticker: "WTE", name: "WisdomTree Physical Palladium ETC",
-      pct1m: -1.8, pct6m: 6.2, pctYtd: 3.4,
-      holds: "Physical palladium bullion — a direct commodity holding, not miner equities.",
-      whyItMoved: "Palladium eased this month on softer auto-catalyst demand forecasts, though the 6M and YTD trend stays positive.",
-      vsCategory: "Underperformed the Commodities category average (+2.4%) by 4.2pts over 1M.",
-      returnRisk: "0.1 (category avg 0.8).",
-      week52: "62% of 52-week range.",
-      aumFlow: "AUM roughly flat this month.",
+      pct1m: 6.42, pct6m: 3.09, pctYtd: -4.04,
+      holds: "Physical palladium bullion — a direct commodity holding backed by metal in HSBC vaults, not miner equities. TER 0.49%.",
+      whyItMoved: "Palladium declined 25% from its peak this year as the EV transition reduces catalytic-converter demand, auto sales softened, and increased recycling rates created oversupply. The strong US dollar and high bond yields added headwinds. The +6.4% 1M bounce reflects short-term supply tightness (Russia is a major producer), but the structural bear case — fewer ICE vehicles needing palladium — remains intact.",
+      vsCategory: "Outperformed the Commodities category average (+1.2%) by 5.2pts over 1M.",
+      returnRisk: "1.27 (category avg 0.8). Volatility 1Y: 41.93% — highest in the portfolio.",
+      week52: "48% of 52-week range — mid-range after a volatile year.",
+      aumFlow: "AUM EUR 158M — niche product, thin compared to gold ETCs.",
       topHoldings: "Single physical holding — no concentration risk in the usual sense."
     }
   ]
