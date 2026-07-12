@@ -145,9 +145,9 @@ body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:14p
 
 </div>
 
-<script src="etf_data.js?v=2026-07-11"></script>
+<script src="etf_data.js?v=2026-07-12"></script>
 <script>
-// ---- plain-English explainer text for the 5 jargon info buttons ----
+// ---- plain-English explainer text for the info buttons ----
 const INFO_TEXT = {
   category: 'Every fund is compared only to similar funds, not the whole market. A semiconductor fund is judged against other tech funds, not against gold miners. That\'s what "category" means here.',
   returnRisk: 'How much gain you got for how bumpy the ride was. A fund that climbs steadily scores higher than one that swings wildly to reach the same gain. Above 1 means a smooth win; below 1 means it was a rough ride to get there.',
@@ -164,6 +164,15 @@ function fmtPct(n){
   return sign + n.toFixed(1) + '%';
 }
 function pctClass(n){ return n >= 0 ? 'pct-up' : 'pct-down'; }
+
+// Formats raw AUM (in EUR millions) into a display string, e.g. 2340 -> "€2.34B", 410 -> "€410M".
+function fmtAum(m){
+  if(m === undefined || m === null || m === '') return '';
+  const num = Number(m);
+  if(isNaN(num)) return '';
+  if(num >= 1000) return '\u20ac' + (num/1000).toFixed(2) + 'B';
+  return '\u20ac' + Math.round(num) + 'M';
+}
 
 function infoBtnHtml(id){
   return '<span class="info-btn" onclick="toggleInfo(\'' + id + '\')">i</span>';
@@ -194,11 +203,14 @@ function fieldRow(label, value, infoKey, idPrefix){
 }
 
 // Builds a drill-panel for a Performers-tab fund (tier-gated).
+// Tiers: "researched" (full depth: why it moved + top holdings) or
+// anything else, rendered as the lighter "STANDARD COVERAGE" tier
+// (no why-it-moved; top holdings still shown if present in the data).
 function buildPerformerDrill(fund, drillId){
   let html = '<div class="drill-panel" id="' + drillId + '">';
   html += fund.tier === 'researched'
     ? '<span class="tier-tag tier-researched">RESEARCHED</span>'
-    : '<span class="tier-tag tier-screener">SCREENER DATA</span>';
+    : '<span class="tier-tag tier-screener">STANDARD COVERAGE</span>';
   html += fieldRow('Holds', fund.holds, null, drillId);
   if(fund.tier === 'researched'){
     html += fieldRow('Why it moved', fund.whyItMoved, null, drillId);
@@ -206,10 +218,9 @@ function buildPerformerDrill(fund, drillId){
   html += fieldRow('vs category', fund.vsCategory, 'category', drillId);
   html += fieldRow('Return / Risk', fund.returnRisk, 'returnRisk', drillId);
   html += fieldRow('52w position', fund.week52, 'week52', drillId);
+  html += fieldRow('Fund size', fmtAum(fund.aumEurM), null, drillId);
   html += fieldRow('AUM flow', fund.aumFlow, 'aumFlow', drillId);
-  if(fund.tier === 'researched'){
-    html += fieldRow('Top holdings', fund.topHoldings, 'topHoldings', drillId);
-  }
+  html += fieldRow('Top holdings', fund.topHoldings, 'topHoldings', drillId);
   html += '</div>';
   return html;
 }
@@ -255,6 +266,7 @@ function buildHoldingsRow(fund, drillId){
   html += fieldRow('vs category', fund.vsCategory, 'category', drillId);
   html += fieldRow('Return / Risk', fund.returnRisk, 'returnRisk', drillId);
   html += fieldRow('52w position', fund.week52, 'week52', drillId);
+  html += fieldRow('Fund size', fmtAum(fund.aumEurM), null, drillId);
   html += fieldRow('AUM flow', fund.aumFlow, 'aumFlow', drillId);
   html += fieldRow('Top holdings', fund.topHoldings, 'topHoldings', drillId);
   html += '</div>';
