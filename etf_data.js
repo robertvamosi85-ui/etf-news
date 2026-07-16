@@ -22,7 +22,7 @@ const LEDGER_DATA = {
 
   meta: {
     asOf: "16 Jul 2026, 14:30",
-    fundsTracked: 3516
+    fundsTracked: 272
   },
 
   performers: {
@@ -134,17 +134,6 @@ const LEDGER_DATA = {
           aumFlow: "AUM EUR 394M — steady inflows.",
           topHoldings: "CrowdStrike ~8%, Palo Alto Networks ~7%, Fortinet ~6%, Zscaler ~5% — top 10 = ~55%."
         },
-        {
-          tier: "researched", ticker: "BUG", name: "Global X Cybersecurity UCITS ETF",
-          category: "Thematic / Cybersecurity", pct: 21.17, aumEurM: 1200,
-          holds: "Global cybersecurity companies — tracks Indxx Cybersecurity v2 Index. 30 holdings. Broader and larger than WisdomTree's WCBR.",
-          whyItMoved: "Same cybersecurity tailwind as WCBR — rising AI-powered threats, enterprise spending above estimates, zero-trust government mandates. BUG's slightly lower return reflects its broader index composition and higher TER (0.51% vs 0.45%). At EUR 1.2B AUM, BUG is the dominant European cybersecurity ETF, attracting institutional flows from investors rotating out of semiconductors.",
-          vsCategory: "Outperformed the Technology category average (+1%) by ~20pts over 1M.",
-          returnRisk: "1.6 (category avg 1.0) — diversified within cybersecurity.",
-          week52: "86% of 52-week range.",
-          aumFlow: "AUM EUR 1,200M — Europe's largest cybersecurity ETF.",
-          topHoldings: "CrowdStrike ~8%, Palo Alto Networks ~7%, Fortinet ~6%, Check Point ~5% — top 10 = ~52%."
-        }
       ],
       worst: [
         {
@@ -219,16 +208,6 @@ const LEDGER_DATA = {
           week52: "65% of 52-week range.",
           aumFlow: "AUM ~EUR 4,800M.",
           topHoldings: "TSMC ~9%, Samsung ~5%, Tencent ~4% — broadly diversified across Asian EM."
-        },
-        {
-          tier: "lighter", ticker: "EMSD", name: "iShares MSCI EM CTB Enhanced ESG UCITS ETF",
-          category: "Emerging Markets / ESG", pct: -4.27, aumEurM: 5700,
-          holds: "ESG-screened emerging market equities — MSCI EM Climate Transition Benchmark index.",
-          vsCategory: "Underperformed the EM Equity category average (-1%) by ~3.3pts over 1M.",
-          returnRisk: "0.4 (category avg 0.5).",
-          week52: "64% of 52-week range.",
-          aumFlow: "AUM ~EUR 5,700M.",
-          topHoldings: "TSMC ~10%, Samsung ~5%, Tencent ~4% — ESG-tilted but similar EM exposure."
         },
         {
           tier: "lighter", ticker: "IEEM", name: "iShares MSCI EM UCITS ETF (Dist)",
@@ -338,28 +317,6 @@ const LEDGER_DATA = {
           topHoldings: "Micron ~9%, AMD ~8%, Broadcom ~7%, TSMC ~7%, NVIDIA ~6% — top 10 = ~59%."
         },
         {
-          tier: "researched", ticker: "CHPX", name: "Global X AI Semiconductor & Quantum UCITS ETF",
-          category: "Semiconductors / AI", pct: 66.47, aumEurM: 120,
-          holds: "AI semiconductor and quantum computing companies — tracks Mirae Asset AI Semiconductor & Quantum Index. ~40 holdings focused on AI chip designers and quantum computing firms.",
-          whyItMoved: "CHPX entered the 6M top 10 as an AI-focused semiconductor product with quantum computing exposure. Launched in November 2025, the fund rode the AI chip supercycle but its narrower AI/quantum focus meant even more concentration risk. The July correction hit hard but 6M returns remain strong. Quantum computing names like IonQ and Rigetti provided partial diversification from pure-play chip stocks.",
-          vsCategory: "Outperformed the Technology category average (+8%) by ~58pts over 6M.",
-          returnRisk: "3.8 (category avg 1.1) — highly concentrated thematic.",
-          week52: "75% of 52-week range.",
-          aumFlow: "AUM ~EUR 120M — growing quickly for a fund launched 8 months ago.",
-          topHoldings: "NVIDIA ~10%, AMD ~8%, Broadcom ~7%, IonQ ~4% — top 10 = ~55%."
-        },
-        {
-          tier: "researched", ticker: "HNSC", name: "HSBC Nasdaq Global Semiconductor UCITS ETF",
-          category: "Semiconductors", pct: 65.23, aumEurM: 350,
-          holds: "Global semiconductor companies — tracks Nasdaq Global Semiconductor Index. Broad coverage of chip designers, foundries, equipment makers, and memory companies.",
-          whyItMoved: "HSBC's semiconductor ETF entered the 6M top 10 as an alternative to iShares SEC0 and VanEck VVSM. Its Nasdaq Global Semiconductor index provides broader coverage than VVSM's 25-stock US-only focus, which partially cushioned the July selloff. The lower TER (0.35%) and rising AUM make it increasingly competitive in the European semiconductor ETF space.",
-          vsCategory: "Outperformed the Technology category average (+8%) by ~57pts over 6M.",
-          returnRisk: "3.3 (category avg 1.1).",
-          week52: "80% of 52-week range.",
-          aumFlow: "AUM ~EUR 350M — growing rapidly.",
-          topHoldings: "NVIDIA ~8%, TSMC ~7%, Broadcom ~6%, AMD ~6% — top 10 = ~52%."
-        },
-        {
           tier: "researched", ticker: "BNQA", name: "BNPP ICE Brent Oil ETC",
           category: "Commodities / Energy", pct: 62.75, aumEurM: 8,
           holds: "Brent crude oil futures — synthetic ETC tracking ICE 1mth Brent Oil Futures index via swap.",
@@ -426,16 +383,6 @@ const LEDGER_DATA = {
           topHoldings: "SAP ~14%, Siemens ~10%, Allianz ~8% — top 10 = ~60%."
         },
         {
-          tier: "lighter", ticker: "DBXD", name: "Xtrackers DAX UCITS ETF",
-          category: "Germany / DAX", pct: -1.71, aumEurM: 4500,
-          holds: "DAX 40 index — Xtrackers' version of the German blue-chip tracker.",
-          vsCategory: "Underperformed the Europe Equity category average (+4%) by ~5.7pts over 6M.",
-          returnRisk: "0.0 (category avg 0.5).",
-          week52: "48% of 52-week range.",
-          aumFlow: "AUM ~EUR 4,500M.",
-          topHoldings: "SAP ~14%, Siemens ~10%, Allianz ~8% — top 10 = ~60%."
-        },
-        {
           tier: "lighter", ticker: "IEAC", name: "iShares Core EUR Corporate Bond UCITS ETF",
           category: "EUR Corporate Bonds", pct: 0.17, aumEurM: 10000,
           holds: "Investment-grade EUR corporate bonds — Bloomberg EUR Corporate Bond index. ~3,800 holdings.",
@@ -445,36 +392,6 @@ const LEDGER_DATA = {
           aumFlow: "AUM ~EUR 10,000M.",
           topHoldings: "Diversified across ~3,800 bonds — no single issuer >1%."
         },
-        {
-          tier: "lighter", ticker: "XEON", name: "Xtrackers EUR Overnight Rate Swap UCITS ETF",
-          category: "Money Market / EUR", pct: 1.01, aumEurM: 22000,
-          holds: "Synthetic — EUR overnight rate (euro-STR) via swap. De facto cash proxy for EUR investors.",
-          vsCategory: "In line with the Money Market EUR category average over 6M.",
-          returnRisk: "Minimal — money market proxy, near-zero volatility.",
-          week52: "100% of 52-week range — incremental gains every month.",
-          aumFlow: "AUM EUR 22,000M — one of Europe's largest money market ETFs.",
-          topHoldings: "Swap-based — no individual security holdings."
-        },
-        {
-          tier: "lighter", ticker: "C3M", name: "Amundi Smart Overnight Return UCITS ETF",
-          category: "Money Market / EUR", pct: 1.19, aumEurM: 5100,
-          holds: "Synthetic — EUR overnight rate (euro-STR) via swap. Amundi's cash-proxy ETF.",
-          vsCategory: "In line with the Money Market EUR category average over 6M.",
-          returnRisk: "Minimal — money market proxy.",
-          week52: "100% of 52-week range.",
-          aumFlow: "AUM ~EUR 5,100M.",
-          topHoldings: "Swap-based — no individual security holdings."
-        },
-        {
-          tier: "lighter", ticker: "CSBG", name: "iShares USD Treasury Bond 3-7yr UCITS ETF",
-          category: "USD Government Bonds / Medium", pct: 1.57, aumEurM: 4800,
-          holds: "US Treasury bonds with 3-7 year maturity — intermediate duration USD government bonds.",
-          vsCategory: "In line with the USD Bond category average over 6M.",
-          returnRisk: "0.1 (category avg 0.2) — moderate duration risk.",
-          week52: "52% of 52-week range.",
-          aumFlow: "AUM ~EUR 4,800M.",
-          topHoldings: "US Treasury bonds — pure government credit, intermediate duration."
-        }
       ]
     },
 
@@ -539,17 +456,6 @@ const LEDGER_DATA = {
           topHoldings: "Micron ~9%, AMD ~8%, Broadcom ~7%, TSMC ~7%, NVIDIA ~6% — top 10 = ~59%."
         },
         {
-          tier: "researched", ticker: "HNSC", name: "HSBC Nasdaq Global Semiconductor UCITS ETF",
-          category: "Semiconductors", pct: 87.61, aumEurM: 350,
-          holds: "Global semiconductor companies — tracks Nasdaq Global Semiconductor Index.",
-          whyItMoved: "HNSC entered the YTD top 10 as an alternative semiconductor product with broad global coverage. Its Nasdaq index provides wider exposure than VanEck's concentrated 25-stock approach, which partially cushioned the July correction. The lower TER (0.35%) makes it cost-competitive with iShares SEC0. Rising AUM signals growing investor preference for diversified chip exposure.",
-          vsCategory: "Outperformed the Technology category average (+15%) by ~73pts YTD.",
-          returnRisk: "3.3 (category avg 1.1).",
-          week52: "80% of 52-week range.",
-          aumFlow: "AUM ~EUR 350M — significant inflows.",
-          topHoldings: "NVIDIA ~8%, TSMC ~7%, Broadcom ~6%, AMD ~6% — top 10 = ~52%."
-        },
-        {
           tier: "researched", ticker: "VVSM", name: "VanEck Semiconductor UCITS ETF",
           category: "Semiconductors", pct: 83.26, aumEurM: 7200,
           holds: "US-listed semiconductor companies — MVIS US Listed Semiconductor 25 Index. 25 concentrated holdings.",
@@ -559,17 +465,6 @@ const LEDGER_DATA = {
           week52: "76% of 52-week range — correcting from ATH.",
           aumFlow: "AUM EUR 7,200M — down from peak of ~EUR 8,200M.",
           topHoldings: "NVIDIA ~12%, Broadcom ~10%, AMD ~8%, Qualcomm ~7% — top 10 = ~70%."
-        },
-        {
-          tier: "researched", ticker: "FLXK", name: "Franklin FTSE Korea UCITS ETF",
-          category: "South Korea", pct: 82.98, aumEurM: 3868,
-          holds: "FTSE Korea 30/18 Capped index — broad South Korean equity exposure. Samsung and SK Hynix-dominated. Ultra-low TER of 0.09%.",
-          whyItMoved: "Franklin's Korea ETF entered the YTD top 10 as the lowest-cost Korean equity product in Europe (TER 0.09%). The same semiconductor supercycle driving KOSPI — Samsung and SK Hynix together comprise ~45% of the index. Despite the July correction, YTD remains strong at +83%. FLXK's massive AUM growth to EUR 3.9B (from ~EUR 1.5B at year start) reflects institutional preference for its ultra-low fee structure over iShares' more expensive IQQK.",
-          vsCategory: "Outperformed the EM Equity category average (+12%) by ~71pts YTD.",
-          returnRisk: "4.0 (category avg 0.5) — Korean index heavily concentrated in semiconductor names.",
-          week52: "74% of 52-week range — pulled back from June peak.",
-          aumFlow: "AUM EUR 3,868M — more than doubled YTD on fee-driven flows.",
-          topHoldings: "Samsung Electronics ~28%, SK Hynix ~18%, Samsung Pref ~3% — top 3 = ~49%."
         },
         {
           tier: "researched", ticker: "OD72", name: "WisdomTree Petroleum ETC",
@@ -651,26 +546,6 @@ const LEDGER_DATA = {
           topHoldings: "Diversified across ~3,800 bonds — no single issuer >1%."
         },
         {
-          tier: "lighter", ticker: "XEON", name: "Xtrackers EUR Overnight Rate Swap UCITS ETF",
-          category: "Money Market / EUR", pct: 1.09, aumEurM: 22000,
-          holds: "Synthetic — EUR overnight rate (euro-STR) via swap.",
-          vsCategory: "In line with the Money Market EUR category average YTD.",
-          returnRisk: "Minimal — money market proxy.",
-          week52: "100% of 52-week range.",
-          aumFlow: "AUM EUR 22,000M.",
-          topHoldings: "Swap-based — no individual security holdings."
-        },
-        {
-          tier: "lighter", ticker: "C3M", name: "Amundi Smart Overnight Return UCITS ETF",
-          category: "Money Market / EUR", pct: 1.29, aumEurM: 5100,
-          holds: "Synthetic — EUR overnight rate (euro-STR) via swap.",
-          vsCategory: "In line with the Money Market EUR category average YTD.",
-          returnRisk: "Minimal — money market proxy.",
-          week52: "100% of 52-week range.",
-          aumFlow: "AUM ~EUR 5,100M.",
-          topHoldings: "Swap-based — no individual security holdings."
-        },
-        {
           tier: "lighter", ticker: "EXS1", name: "iShares Core DAX UCITS ETF",
           category: "Germany / DAX", pct: 1.55, aumEurM: 6800,
           holds: "DAX 40 index — iShares' German blue-chip tracker.",
@@ -680,26 +555,6 @@ const LEDGER_DATA = {
           aumFlow: "AUM ~EUR 6,800M.",
           topHoldings: "SAP ~14%, Siemens ~10%, Allianz ~8% — top 10 = ~60%."
         },
-        {
-          tier: "lighter", ticker: "DBXD", name: "Xtrackers DAX UCITS ETF",
-          category: "Germany / DAX", pct: 1.75, aumEurM: 4500,
-          holds: "DAX 40 index — Xtrackers' German blue-chip tracker.",
-          vsCategory: "Underperformed the Europe Equity category average (+7%) by ~5.3pts YTD.",
-          returnRisk: "0.1 (category avg 0.5).",
-          week52: "49% of 52-week range.",
-          aumFlow: "AUM ~EUR 4,500M.",
-          topHoldings: "SAP ~14%, Siemens ~10%, Allianz ~8% — top 10 = ~60%."
-        },
-        {
-          tier: "lighter", ticker: "CSBG", name: "iShares USD Treasury Bond 3-7yr UCITS ETF",
-          category: "USD Government Bonds / Medium", pct: 2.50, aumEurM: 4800,
-          holds: "US Treasury bonds with 3-7 year maturity — intermediate duration.",
-          vsCategory: "In line with the USD Bond category average YTD.",
-          returnRisk: "0.1 (category avg 0.2).",
-          week52: "52% of 52-week range.",
-          aumFlow: "AUM ~EUR 4,800M.",
-          topHoldings: "US Treasury bonds — intermediate duration, credit-risk-free."
-        }
       ]
     }
   },

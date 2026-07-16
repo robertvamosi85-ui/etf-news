@@ -1,0 +1,287 @@
+# Lightyear-available ETF/ETC/ETP tickers — authoritative allow-list
+# Source: exhaustive screenshot scrape of the Lightyear app's ETF list (45 screenshots,
+# scrolled top to bottom), reviewed 1-by-1 with Robert for low-confidence rows.
+# NOTE: this scrape covers the app's "ETFs" tab only. Gold ETCs, crypto ETPs, and other
+# commodity ETCs may exist under separate app tabs (Commodities/Crypto) not captured here —
+# do NOT treat a ticker's absence from this list as proof it's unavailable if it's in one
+# of those categories; flag it for manual verification instead of silently dropping it.
+# WARNING: match by provider + fund name, not ticker alone. Lightyear often uses its own
+# internal ticker code that differs from justETF's standard ticker for the same fund
+# (e.g. iShares MSCI EM Asia = "EEMA" on justETF, "CEBL"/"CEA1" here). Ticker-only
+# matching also risks false positives: a ticker below can belong to a totally different
+# fund than the one you're checking (e.g. "C3M" here is Amundi ETF Govies 0-6 Months,
+# not any Amundi "Overnight Return" product — same ticker, different fund).
+# 272 unique funds / 432 tickers across currency listings.
+
+C40                  Amundi — Amundi CAC 40
+DAXX                 Amundi — Amundi DAX II
+DAX                  Amundi — Amundi DAX III
+C3M                  Amundi — Amundi ETF Govies 0-6 Months Euro Investment Grade
+CE2D                 Amundi — Amundi Index MSCI Europe
+CNAA                 Amundi — Amundi MSCI China A
+NRJ, NRJL            Amundi — Amundi MSCI New Energy ESG Screened
+LSMC, SEMG           Amundi — Amundi MSCI Semiconductors
+LWCR                 Amundi — Amundi MSCI World ESG Climate Net Zero Ambition
+WEBN                 Amundi — Amundi Prime All Country World
+500G                 Amundi — Amundi S&P 500
+MEUD, MEUD           Amundi — Amundi STOXX Europe 600
+C6E                  Amundi — Amundi STOXX Europe 600 ESG
+DEFE                 Amundi — Amundi Stoxx Europe Defense
+ECN                  BNP Paribas — BNP Paribas Easy Low Carbon 100 Europe
+HMWO                 HSBC — HSBC MSCI World
+BCHS                 Invesco — Invesco CoinShares Global Blockchain
+EQQQ, EQQQ           Invesco — Invesco EQQQ Nasdaq 100
+FWIA, FWRG           Invesco — Invesco FTSE All-World
+SPXP                 Invesco — Invesco S&P 500
+BATT, BATG           LGIM (L&G) — L&G Battery Value-Chain
+AUCO, AUCP           LGIM (L&G) — L&G Gold Mining
+SYBA                 SPDR — SPDR Bloomberg Euro Aggregate Bond
+GLBL                 SPDR — SPDR Bloomberg Global Aggregate Bond USD Hdg
+SPYY, ACWI           SPDR — SPDR MSCI All Country World
+SPYI                 SPDR — SPDR MSCI All Country World IM
+EMAD, SPYA           SPDR — SPDR MSCI EM Asia
+SPPW, SWLD           SPDR — SPDR MSCI World
+WIND                 SPDR — SPDR MSCI World Industrials
+WMAT                 SPDR — SPDR MSCI World Materials
+WTCH, TECW           SPDR — SPDR MSCI World Technology
+WTEL                 SPDR — SPDR MSCI World Telecommunications
+WUTI                 SPDR — SPDR MSCI World Utilities
+R2US                 SPDR — SPDR Russell 2000 US Small Cap
+SPY4, SPX4           SPDR — SPDR S&P 400 US Mid Cap
+SPYL, SPXL           SPDR — SPDR S&P 500
+EUDV, EUDV           SPDR — SPDR S&P Euro Dividend Aristocrats
+SPYD, USDV           SPDR — SPDR S&P US Dividend Aristocrats
+DAGB, DAVV           VanEck — VanEck Crypto And Blockchain Innovators
+DFEN, DFNG           VanEck — VanEck Defense
+TRET, TREG           VanEck — VanEck Global Real Estate
+TDIV, TDGB           VanEck — VanEck Morningstar Developed Markets Dividend Leaders
+GMVM, MOGB           VanEck — VanEck Morningstar Wide Moat
+QUTM, QNTG           VanEck — VanEck Quantum Computing
+VVMX, REGB           VanEck — VanEck Rare Earth and Strategic Metals
+VVSM, SMGB           VanEck — VanEck Semiconductor
+JEDI, JEDG           VanEck — VanEck Space Innovators
+NUKL, NUCG           VanEck — VanEck Uranium And Nuclear Technologies
+ESPO, ESGB           VanEck — VanEck Video Gaming and eSports
+TSWE, TSGB           VanEck — VanEck World Equal Weight Screened
+V3AA, V3AB           Vanguard — Vanguard ESG Global All Cap
+VECP, VECP           Vanguard — Vanguard EUR Corporate Bond
+VGEA, VETA, VGEB, VETY Vanguard — Vanguard EUR Eurozone Government Bond
+VUKE                 Vanguard — Vanguard FTSE 100
+VMID                 Vanguard — Vanguard FTSE 250
+VWCE, VWRP, VWRD, VWRL, VWRL Vanguard — Vanguard FTSE All-World
+VHYL, VHYL           Vanguard — Vanguard FTSE All-World High Dividend Yield
+VAPX, VAPX           Vanguard — Vanguard FTSE Developed Asia Pacific ex Japan
+VEUR, VEUR, VWCG, VEUA Vanguard — Vanguard FTSE Developed Europe
+VERX, VERX           Vanguard — Vanguard FTSE Developed Europe ex UK
+VGVF, VHVG, VGVE, VEVE Vanguard — Vanguard FTSE Developed World
+VDEM, VFEM, VFEM     Vanguard — Vanguard FTSE Emerging Markets
+VJPN                 Vanguard — Vanguard FTSE Japan
+VNRT, VNRA, VNRT, VNRG Vanguard — Vanguard FTSE North America
+VAGF                 Vanguard — Vanguard Global Aggregate Bond - EUR Hedged
+VAGU                 Vanguard — Vanguard Global Aggregate Bond - USD Hedged
+VUSD, VUSA, VUSA, VUAA, VUAA, VUAG Vanguard — Vanguard S&P 500
+VGOV                 Vanguard — Vanguard UK Gilt UCITS ETF
+VDPA, VUCE, VCPA     Vanguard — Vanguard USD Corporate Bond
+VEMT                 Vanguard — Vanguard USD Emerging Markets Government Bond
+VUTA, VUTY, VUTY     Vanguard — Vanguard USD Treasury Bond
+VDTE                 Vanguard — Vanguard USD Treasury Bond EUR Hedged
+WTAI, INTL           WisdomTree — WisdomTree Artificial Intelligence
+W1TB, CYSE           WisdomTree — WisdomTree Cybersecurity
+WREE                 WisdomTree — WisdomTree Energy Transition Metals and Rare Earths Miners
+EUDF, WDEP           WisdomTree — WisdomTree Europe Defence
+GGRG                 WisdomTree — WisdomTree Global Quality Dividend Growth
+WQTM                 WisdomTree — WisdomTree Quantum Computing
+XAIX, XAIX           Xtrackers — Xtrackers Artificial Intelligence And Big Data
+DBXN                 Xtrackers — Xtrackers Eurozone Government Bond
+XGSG                 Xtrackers — Xtrackers Global Government Bond
+XMEU                 Xtrackers — Xtrackers MSCI Europe
+DX2J, XXSC           Xtrackers — Xtrackers MSCI Europe Small Cap
+EXUS, XMWX           Xtrackers — Xtrackers MSCI World Ex USA
+XNAS, XNAQ           Xtrackers — Xtrackers Nasdaq 100
+XSPX                 Xtrackers — Xtrackers S&P 500 Swap
+XESD                 Xtrackers — Xtrackers Spain
+IAEX, IAEX           iShares — iShares AEX
+AIAA, AIAA           iShares — iShares AI Adopters and Applications
+AIFS, AINF           iShares — iShares AI Infrastructure
+EXXX                 iShares — iShares ATX
+AGED                 iShares — iShares Ageing Population
+ISAE, SPAG           iShares — iShares Agribusiness
+IAPD                 iShares — iShares Asia Pacific Dividend
+IASP                 iShares — iShares Asia Property Yield
+RBOT, 2B76, RBTX     iShares — iShares Automation & Robotics
+FXC                  iShares — iShares China Large Cap
+CEBS, MINE           iShares — iShares Copper Miners
+EXS1, EXIC           iShares — iShares Core DAX
+EXW1, ISX5, CSX5, CS51, EUEA, EUE iShares — iShares Core EURO STOXX 50
+IEAC, IEBC           iShares — iShares Core Euro Corporate Bond
+SEGA                 iShares — iShares Core Euro Government Bond
+ISFA, ISF, CUKX      iShares — iShares Core FTSE 100
+EUNU                 iShares — iShares Core Global Aggregate Bond
+IEGA                 iShares — iShares Core Government Bond
+CEMU, CEU1           iShares — iShares Core MSCI EMU
+EIMI, EMIM, EMIM     iShares — iShares Core MSCI Emerging Markets IMI
+IMAE, IMEU, IMEU     iShares — iShares Core MSCI Europe
+IJPA                 iShares — iShares Core MSCI Japan
+SJPA                 iShares — iShares Core MSCI Japan IMI
+CPXJ, CPJ1           iShares — iShares Core MSCI Pacific ex Japan
+IWDA, IWDA, SWDA     iShares — iShares Core MSCI World
+CSPX, SXR8, CSPX, CSP1, IDUS, IUSA, IUSA iShares — iShares Core S&P 500
+IGLT                 iShares — iShares Core UK GILTS
+EXIA                 iShares — iShares Dax ESG
+IDWP, IWDP           iShares — iShares Developed Markets Property Yield
+L0CK                 iShares — iShares Digital Security
+DGTL, DGIT           iShares — iShares Digitalisation
+EXSB                 iShares — iShares DivDAX
+ICOM, EXXY           iShares — iShares Diversified Commodity Swap
+EXXW                 iShares — iShares Dow Jones Asia Pacific Select Dividend 50
+EXXU                 iShares — iShares Dow Jones China Offshore 50
+EXXV                 iShares — iShares Dow Jones Eurozone Sustainability Screened
+EXI2                 iShares — iShares Dow Jones Global Titans 50
+EXI3                 iShares — iShares Dow Jones Industrial Average
+EXX5                 iShares — iShares Dow Jones U.S. Select Dividend
+QDVL, SUSS           iShares — iShares EUR Corporate Bond 0-3yr ESG
+EUNT, SE15           iShares — iShares EUR Corporate Bond 1-5yr
+OM3F                 iShares — iShares EUR Corporate Bond ESG
+EUNR, EEXF           iShares — iShares EUR Corporate Bond ex-Financials
+EUNW, SHYG           iShares — iShares EUR High Yield Corp Bond
+ERNE, ERN1           iShares — iShares EUR Ultrashort Bond
+SXXEEX               iShares — iShares EURO STOXX
+EXX1, EXA1           iShares — iShares EURO STOXX Banks 30-15
+DJMC, DJMC           iShares — iShares EURO STOXX Mid Cap
+EXSG                 iShares — iShares EURO STOXX Select Dividend 30
+EMV                  iShares — iShares Edge MSCI EM Minimum Volatility
+EMMV                 iShares — iShares Edge MSCI Emerging Markets Minimum Volatility
+CEMS, IEFV           iShares — iShares Edge MSCI Europe Value Factor
+IUQF                 iShares — iShares Edge MSCI USA Quality Factor
+MVOL, IQQ0, MINV     iShares — iShares Edge MSCI World Minimum Volatility
+IWQU, IS3Q, IWFQ     iShares — iShares Edge MSCI World Quality Factor
+IWVL, IWFV           iShares — iShares Edge MSCI World Value Factor
+SPMV, IBCK, MVUS     iShares — iShares Edge S&P 500 Minimum Volatility
+GCAR                 iShares — iShares Electric Vehicles And Driving Technology
+ECAR, IEVD           iShares — iShares Electric Vehicles and Driving Technology
+IEDY, SEDY           iShares — iShares Emerging Markets Dividend
+CEBT, METG           iShares — iShares Essential Metals Producers
+EUN4, SEAG           iShares — iShares Euro Aggregate Bond ESG
+IBCX                 iShares — iShares Euro Corporate Bond Large Cap
+IUS6                 iShares — iShares Euro Covered Bond
+IDVY                 iShares — iShares Euro Dividend
+IEGE                 iShares — iShares Euro Government Bond 0-1yr
+EXHF                 iShares — iShares Euro Government Bond Capped 1.5-10.5yr
+IPRP, IPRP           iShares — iShares European Property Yield
+MIDD                 iShares — iShares FTSE 250
+IMIB                 iShares — iShares FTSE MIB
+INXG                 iShares — iShares GBP Index-Linked Gilts
+DFND, DFND           iShares — iShares Global Aerospace & Defence
+SAGG                 iShares — iShares Global Aggregate Bond
+IQQH, INRG           iShares — iShares Global Clean Energy
+ISOX, CRPS           iShares — iShares Global Corporate Bond
+EUN3                 iShares — iShares Global Government Bond
+INFR                 iShares — iShares Global Infrastructure
+IQQQ, IH2O           iShares — iShares Global Water
+IAUP, SPGP           iShares — iShares Gold Producers
+MAGR, MAGG           iShares — iShares Growth Portfolio
+HEAL, 2B78, DRDR     iShares — iShares Healthcare Innovation
+IS3C                 iShares — iShares J.P. Morgan USD EM Bond EUR Hedged
+EMCR, EMCP           iShares — iShares J.P. Morgan USD EM Corporate Bond
+IEMB, IUS7, SEMB, ISO2 iShares — iShares J.P. Morgan USD Emerging Markets Bond
+EXS3, EXID           iShares — iShares MDAX
+IQQF, IFFF           iShares — iShares MSCI AC Far East ex-Japan
+ISAC, IUSQ, SSAC     iShares — iShares MSCI ACWI
+IBC6, SAUS           iShares — iShares MSCI Australia
+IQQB, IBZL           iShares — iShares MSCI Brazil
+SXR2, CSCA           iShares — iShares MSCI Canada
+ICGA                 iShares — iShares MSCI China
+IQQE, EUNM, SEMA     iShares — iShares MSCI EM
+CEBL, CEA1           iShares — iShares MSCI EM Asia
+AYEM, SEGM           iShares — iShares MSCI EM IMI Screened
+LTAM, LTAM           iShares — iShares MSCI EM Latin America
+SUSM, SUES, 36B5     iShares — iShares MSCI EM SRI
+84X0, EXCS           iShares — iShares MSCI EM ex-China
+SLMA, SLMB           iShares — iShares MSCI EMU ESG Screened
+SAUM, SMUD           iShares — iShares MSCI EMU Screened
+IDEM, IEEM           iShares — iShares MSCI Emerging Markets
+SUSM                 iShares — iShares MSCI Emerging Markets SRI
+EMNU, EEUD           iShares — iShares MSCI Europe ESG Enhanced
+ESIF, ESIF           iShares — iShares MSCI Europe Financials Sector
+ESIH, ESIH           iShares — iShares MSCI Europe Health Care Sector
+ESIN, ESIN           iShares — iShares MSCI Europe Industrials Sector
+IESE, IESG           iShares — iShares MSCI Europe SRI
+SLMC, SAEU           iShares — iShares MSCI Europe Screened
+IEUX, IEUX           iShares — iShares MSCI Europe ex-UK
+SEC0, SEMI           iShares — iShares MSCI Global Semiconductors
+NDIA, IIND           iShares — iShares MSCI India
+SGAJ                 iShares — iShares MSCI Japan ESG Screened
+SGJP                 iShares — iShares MSCI Japan Screened
+IQQK, IKOR           iShares — iShares MSCI Korea
+IBCJ, SPOL           iShares — iShares MSCI Poland
+IBC4, SRSA           iShares — iShares MSCI South Africa
+ITWN, ITWN           iShares — iShares MSCI Taiwan
+EEDG                 iShares — iShares MSCI USA CTB Enhanced ESG
+OM3L                 iShares — iShares MSCI USA ESG Enhanced
+ISDU, ISUS           iShares — iShares MSCI USA Islamic
+HDIQ                 iShares — iShares MSCI USA Quality Dividend ESG
+SUAS, QDVR, SUUS     iShares — iShares MSCI USA SRI
+SGAS, GPSA           iShares — iShares MSCI USA Screened
+CUS1                 iShares — iShares MSCI USA Small Cap CTB Enhanced ESG
+SXRG                 iShares — iShares MSCI USA Small Cap ESG Enhanced CTB
+IWRD, IWRD           iShares — iShares MSCI World
+CBUF                 iShares — iShares MSCI World Health Care Sector Advanced
+IUSD, ISWD           iShares — iShares MSCI World Islamic
+WQDV, WQDS           iShares — iShares MSCI World Quality Dividend
+2B7K, 2B7J, SUWG     iShares — iShares MSCI World SRI
+WSML, IUSN, WLDS     iShares — iShares MSCI World Small Cap
+MODR, MAMG           iShares — iShares Moderate Portfolio
+EXXT                 iShares — iShares NASDAQ 100
+CNDX, CNDX, CNX1     iShares — iShares Nasdaq 100
+BTEC, BTEK           iShares — iShares Nasdaq US Biotechnology
+EXX7                 iShares — iShares Nikkei 225
+IOGP, IOGP, SPOG     iShares — iShares Oil & Gas Exploration & Production
+ICDU                 iShares — iShares S&P 500 Consumer Discretionary Sector
+2B7D, ICSU           iShares — iShares S&P 500 Consumer Staples Sector
+IBCF                 iShares — iShares S&P 500 EUR Hedged
+IUES, QDVF, IESU     iShares — iShares S&P 500 Energy Sector
+O4J0, EWSP           iShares — iShares S&P 500 Equal Weight
+IUFS, UIFS           iShares — iShares S&P 500 Financials Sector
+IUHE                 iShares — iShares S&P 500 Health Care Sector
+2B7C, IISU           iShares — iShares S&P 500 Industrials Sector
+IUIT, QDVE, IITU     iShares — iShares S&P 500 Information Technology Sector
+2B7B, IMSU           iShares — iShares S&P 500 Materials Sector
+2B7A, IUSU           iShares — iShares S&P 500 Utilities Sector
+ISP6                 iShares — iShares S&P Small Cap 600
+IDP6                 iShares — iShares S&P SmallCap 600
+IUS2                 iShares — iShares S&P US Banks
+EXW3                 iShares — iShares STOXX Europe 50
+EXSA, EXIE           iShares — iShares STOXX Europe 600
+EXV5                 iShares — iShares STOXX Europe 600 Automobiles & Parts
+EXV1                 iShares — iShares STOXX Europe 600 Banks
+EXV6                 iShares — iShares STOXX Europe 600 Basic Resources
+EXV7                 iShares — iShares STOXX Europe 600 Chemicals
+EXV8                 iShares — iShares STOXX Europe 600 Construction & Materials
+EXH2                 iShares — iShares STOXX Europe 600 Financial Services
+EXH3                 iShares — iShares STOXX Europe 600 Food & Beverage
+EXV4                 iShares — iShares STOXX Europe 600 Health Care
+EXH4                 iShares — iShares STOXX Europe 600 Industrial Goods & Services
+A0H08K               iShares — iShares STOXX Europe 600 Insurance
+EXH6                 iShares — iShares STOXX Europe 600 Media
+EXH1                 iShares — iShares STOXX Europe 600 Oil & Gas
+EXH7                 iShares — iShares STOXX Europe 600 Personal & Household Goods
+EXI5                 iShares — iShares STOXX Europe 600 Real Estate
+EXH8                 iShares — iShares STOXX Europe 600 Retail
+EXV3, STEC           iShares — iShares STOXX Europe 600 Technology
+EXV2                 iShares — iShares STOXX Europe 600 Telecommunications
+EXV9                 iShares — iShares STOXX Europe 600 Travel & Leisure
+EXH9                 iShares — iShares STOXX Europe 600 Utilities
+EXSD                 iShares — iShares STOXX Europe Mid 200
+EXSH                 iShares — iShares STOXX Europe Select Dividend 30
+EXS2                 iShares — iShares TecDAX
+IUKD                 iShares — iShares UK Dividend
+IGLS                 iShares — iShares UK Gilts 0-5yr
+IUKP                 iShares — iShares UK Property
+LQDA, LQDS           iShares — iShares USD Corporate Bond
+ISOR, SHYU           iShares — iShares USD High Yield Corporate Bond
+IS3J, IGSD           iShares — iShares USD Short Duration Corporate Bond
+SDHG                 iShares — iShares USD Short Duration High Yield Corporate Bond
+IDTL                 iShares — iShares USD Treasury Bond 20+yr
+ERND, ERNU           iShares — iShares USD Ultrashort Bond
+EXHA                 iShares — iShares eb.rexx Government Germany
+EXVM                 iShares — iShares eb.rexx Money Market
