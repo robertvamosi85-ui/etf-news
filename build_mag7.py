@@ -1,0 +1,161 @@
+#!/usr/bin/env python3
+"""One-shot builder for mag7.js — Mag7 Scorecard for the ETFNews app.
+Hardcodes all data collected via Chrome MCP + WebSearch on 2 Aug 2026.
+"""
+import json, os
+
+AS_OF = "31 Jul 2026, close"
+FX_RATE = "EUR/USD 1.1519"
+
+STOCKS = [
+    {
+        "name": "Apple",
+        "ticker": "AAPL",
+        "price": "$308.91",
+        "change": "-7.24%",
+        "pe": "~35x",
+        "pe_plain": "paying ~35 years of annual earnings",
+        "target": "n/a — not sourced this week",
+        "theme": "Services plateau, AI features nascent",
+        "news": "Q3 FY2026 revenue beat at $109.4B (+16%), iPhone up 22%. But services came in light at $30.7B vs $31.2B expected and the stock fell 3–4%. Tariff refunds inflated EPS by $0.11 — strip that and the beat is thinner.",
+        "earnings": "~late Oct 2026",
+        "earnings_proximity": "far",
+        "verdict": "HOLD",
+        "verdict_reason": "Services revenue miss signals slowing growth in Apple’s highest-margin segment; 35x earnings prices in perfection.",
+    },
+    {
+        "name": "Microsoft",
+        "ticker": "MSFT",
+        "price": "$464.72",
+        "change": "+21.75%",
+        "pe": "~25x",
+        "pe_plain": "paying ~25 years of annual earnings",
+        "target": "n/a — not sourced this week",
+        "theme": "Azure + Copilot flywheel",
+        "news": "Q4 FY2026 EPS of $4.74 crushed the $4.24 estimate as Azure crossed $100B annual run-rate. Total revenue $90B (+18%). Stock jumped 21% in a week — fastest Mag7 re-rate since the OpenAI partnership news.",
+        "earnings": "~late Oct 2026",
+        "earnings_proximity": "far",
+        "verdict": "BUY",
+        "verdict_reason": "Azure crossing $100B annual revenue with 18% total growth validates the AI infrastructure thesis at a reasonable 25x trailing.",
+    },
+    {
+        "name": "Amazon",
+        "ticker": "AMZN",
+        "price": "$271.58",
+        "change": "+17.00%",
+        "pe": "~22x",
+        "pe_plain": "paying ~22 years of annual earnings",
+        "target": "n/a — not sourced this week",
+        "theme": "AWS re-acceleration + AI capex",
+        "news": "Q2 revenue $200.6B (+20%) with AWS re-accelerating to 37% growth at $42.2B. Net income surged 2.5x to $62.7B. Capex raised to $220B — management floated AWS becoming a $1T business.",
+        "earnings": "~late Oct 2026",
+        "earnings_proximity": "far",
+        "verdict": "BUY",
+        "verdict_reason": "AWS growth re-accelerating to 37% and $220B capex commitment signal Amazon is winning the enterprise AI infrastructure race at 22x earnings.",
+    },
+    {
+        "name": "Alphabet",
+        "ticker": "GOOGL",
+        "price": "$356.13",
+        "change": "+11.38%",
+        "pe": "~17x",
+        "pe_plain": "paying ~17 years of annual earnings",
+        "target": "n/a — not sourced this week",
+        "theme": "Cloud growth vs capex cash burn",
+        "news": "Q2 revenue $119.8B (+24%), Cloud up 82% to $24.8B. But free cash flow flipped to −$5.9B as capex guidance rose to $195–205B. Investors sold despite the beat — AI spending now outpaces cash generation.",
+        "earnings": "~late Oct 2026",
+        "earnings_proximity": "far",
+        "verdict": "WATCH",
+        "verdict_reason": "Cloud revenue up 82% but free cash flow turned negative — $200B capex plan must convert to returns before the 17x multiple re-rates.",
+    },
+    {
+        "name": "Meta Platforms",
+        "ticker": "META",
+        "price": "$556.71",
+        "change": "-6.47%",
+        "pe": "~21x",
+        "pe_plain": "paying ~21 years of annual earnings",
+        "target": "$600–$750",
+        "theme": "Ad growth meets cost explosion",
+        "news": "Q2 revenue $60.8B (+28%) but EPS of $6.18 missed the $7.22 estimate — costs surged 55% including $2.4B legal charges and $1.2B severance for 8,000 layoffs. Operating margin compressed to 31% from 43%.",
+        "earnings": "~late Oct 2026",
+        "earnings_proximity": "far",
+        "verdict": "HOLD",
+        "verdict_reason": "Costs surging 55% with $130–145B capex compresses margins from 43% to 31%; ad revenue strength must sustain through the spending cycle.",
+    },
+    {
+        "name": "Nvidia",
+        "ticker": "NVDA",
+        "price": "$200.75",
+        "change": "-2.94%",
+        "pe": "~31x",
+        "pe_plain": "paying ~31 years of annual earnings",
+        "target": "n/a — not sourced this week",
+        "theme": "AI compute king, earnings imminent",
+        "news": "Full FY2026 revenue was $215.9B (+65%), EPS up 111%. Reports Q2 FY2027 on Aug 26 — key question is whether Blackwell chip margins hold as supply catches up with the $51B order backlog.",
+        "earnings": "Aug 26, 2026",
+        "earnings_proximity": "soon",
+        "verdict": "BUY",
+        "verdict_reason": "31x trailing for 65% revenue growth is not expensive; Aug 26 earnings will confirm whether Blackwell demand sustains the trajectory.",
+    },
+    {
+        "name": "Tesla",
+        "ticker": "TSLA",
+        "price": "$311.20",
+        "change": "-0.58%",
+        "pe": "~253x",
+        "pe_plain": "paying ~253 years of annual earnings",
+        "target": "n/a — not sourced this week",
+        "theme": "Narrative vs fundamentals gap",
+        "news": "Q2 deliveries hit record 480K but operating income fell 57% to $398M. EPS of $0.33 missed the $0.54 estimate. FCF turned negative at −$1.1B as $25B+ capex goes to AI compute, not cars.",
+        "earnings": "~late Oct 2026",
+        "earnings_proximity": "far",
+        "verdict": "CAUTION",
+        "verdict_reason": "Operating income down 57% and negative FCF at 253x earnings — the price assumes robotaxi revenue that doesn’t exist yet.",
+    },
+]
+
+def build():
+    return {
+        "meta": {
+            "asOf": AS_OF,
+            "universe": "Mag7",
+            "fxRate": FX_RATE,
+        },
+        "stocks": STOCKS,
+    }
+
+def validate(data):
+    errs = []
+    if len(data["stocks"]) != 7:
+        errs.append(f"Expected 7 stocks, got {len(data['stocks'])}")
+    for s in data["stocks"]:
+        for k in ["name","ticker","price","change","pe","pe_plain","target",
+                   "theme","news","earnings","earnings_proximity","verdict","verdict_reason"]:
+            if k not in s:
+                errs.append(f"{s.get('ticker','?')}: missing {k}")
+        if s.get("verdict") not in ("BUY","HOLD","WATCH","CAUTION"):
+            errs.append(f"{s.get('ticker','?')}: invalid verdict '{s.get('verdict')}'")
+        if s.get("earnings_proximity") not in ("imminent","soon","upcoming","far"):
+            errs.append(f"{s.get('ticker','?')}: invalid earnings_proximity '{s.get('earnings_proximity')}'")
+    return errs
+
+def to_js(data):
+    blob = json.dumps(data, indent=2, ensure_ascii=False)
+    return f"const MAG7 = {blob};\n"
+
+if __name__ == "__main__":
+    data = build()
+    errs = validate(data)
+    if errs:
+        print("VALIDATION ERRORS:")
+        for e in errs:
+            print(f"  • {e}")
+    else:
+        print("✓ Validation passed")
+    js = to_js(data)
+    out = os.path.join(os.path.dirname(os.path.abspath(__file__)), "mag7.js")
+    with open(out, "w") as f:
+        f.write(js)
+    print(f"✓ Wrote {len(js):,} bytes to {out}")
+    print(f"  {len(data['stocks'])} stocks, verdicts: {[s['verdict'] for s in data['stocks']]}")
