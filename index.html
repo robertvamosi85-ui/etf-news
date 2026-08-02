@@ -35,8 +35,10 @@ body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:14p
 .masthead h1{font-family:var(--serif);font-weight:600;font-size:23px;letter-spacing:.01em;color:var(--ink);}
 .mast-sub{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--copper-light);margin-top:6px;}
 
-.meta-bar{display:flex;justify-content:center;gap:8px;padding:10px 20px;font-family:var(--mono);font-size:10px;color:var(--ink-dim);border-bottom:1px solid var(--rule);flex-wrap:wrap;}
+.meta-bar{display:flex;justify-content:center;gap:8px;padding:10px 20px;font-family:var(--mono);font-size:10px;color:var(--ink-dim);border-bottom:1px solid var(--rule);flex-wrap:wrap;align-items:center;}
 .meta-bar .dot{color:var(--rule-strong);}
+/* --- FX chip (Stocks): ambient EUR/USD reference, hides if movers.js absent --- */
+.fx-chip{font-family:var(--mono);font-size:10px;color:var(--copper-light);border:1px solid var(--copper);border-radius:2px;padding:1px 7px;letter-spacing:.03em;}
 
 .main-tabs{display:flex;margin:18px 20px 0;border:1px solid var(--rule-strong);}
 .mtab{flex:1;background:none;border:none;color:var(--ink-dim);font-family:var(--serif);font-style:italic;font-weight:600;font-size:14px;padding:12px 0;cursor:pointer;border-right:1px solid var(--rule-strong);}
@@ -44,6 +46,14 @@ body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:14p
 .mtab.on{background:var(--copper);color:#0a0b08;}
 .main-view{display:none;}
 .main-view.on{display:block;}
+
+/* --- universe label (Stocks): buyability + currency + source status --- */
+.universe-label{font-family:var(--mono);font-size:9.5px;letter-spacing:.05em;color:var(--ink-dim);text-align:center;margin:12px 20px 0;padding:7px 8px;border:1px dashed var(--rule-strong);border-radius:2px;}
+.universe-label b{color:var(--copper-light);font-weight:600;}
+.src-tag{text-transform:uppercase;font-weight:700;}
+.src-verified{color:var(--up);}
+.src-divergent{color:var(--researched);}
+.empty-note{text-align:center;font-family:var(--mono);font-size:11px;color:var(--ink-dim);padding:40px 20px;letter-spacing:.04em;}
 
 .period-tabs{display:flex;margin:18px 20px 4px;border:1px solid var(--rule-strong);}
 .ptab{flex:1;background:none;border:none;color:var(--ink-dim);font-family:var(--mono);font-size:11px;letter-spacing:.1em;padding:9px 0;cursor:pointer;border-right:1px solid var(--rule-strong);}
@@ -66,9 +76,13 @@ body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:14p
 .rank-name{font-family:var(--sans);font-size:10.5px;color:var(--ink-dim);font-weight:400;display:block;margin-top:2px;}
 .rank-tags{display:flex;align-items:center;gap:5px;margin-top:5px;flex-wrap:wrap;}
 .tag-cat{font-family:var(--mono);font-size:8.5px;letter-spacing:.05em;color:var(--ink-dim);border:1px solid var(--rule-strong);padding:1px 6px;border-radius:2px;}
+/* --- currency tag (Stocks): self-labels each row's reporting currency --- */
+.tag-ccy{font-family:var(--mono);font-size:8.5px;letter-spacing:.05em;color:var(--copper-light);border:1px solid var(--copper);padding:1px 6px;border-radius:2px;font-weight:600;}
 .badge{font-family:var(--mono);font-size:8.5px;letter-spacing:.04em;padding:1px 6px;border-radius:2px;font-weight:600;}
 .badge-thin{color:var(--copper-light);border:1px solid var(--copper);}
 .badge-trend{color:#0a0b08;background:var(--researched);}
+/* --- volume-confirmation badge (Stocks, 1M only) --- */
+.badge-vol{color:#0a0b08;background:var(--researched);}
 .rank-pct{font-family:var(--mono);font-size:15px;font-weight:700;text-align:right;padding-top:2px;}
 .pct-up{color:var(--up);}
 .pct-down{color:var(--down);}
@@ -82,6 +96,11 @@ body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:14p
 .drill-row{font-size:12px;color:var(--ink);line-height:1.6;margin-bottom:7px;}
 .drill-row:last-child{margin-bottom:0;}
 .drill-row b{color:var(--ink-dim);font-family:var(--mono);font-size:10px;letter-spacing:.04em;text-transform:uppercase;font-weight:600;display:inline-flex;align-items:center;gap:5px;margin-bottom:2px;}
+/* --- driver tag chips (Stocks, researched tier) --- */
+.drivers{display:flex;gap:5px;flex-wrap:wrap;margin-top:2px;}
+.drv{font-family:var(--mono);font-size:8.5px;letter-spacing:.04em;padding:1px 6px;border-radius:2px;border:1px solid var(--screener);color:var(--screener);}
+.drv.fund{border-color:var(--up);color:var(--up);}
+.drv.sent{border-color:var(--copper-light);color:var(--copper-light);}
 
 .info-btn{display:inline-flex;align-items:center;justify-content:center;width:13px;height:13px;border-radius:50%;border:1px solid var(--ink-dim);color:var(--ink-dim);font-family:var(--serif);font-size:9px;font-style:italic;font-weight:600;cursor:pointer;flex-shrink:0;}
 .info-btn.on{border-color:var(--copper-light);color:var(--copper-light);}
@@ -123,6 +142,7 @@ body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:14p
   <div class="main-tabs">
     <button class="mtab on" onclick="showMain('performers',this)">Performers</button>
     <button class="mtab" onclick="showMain('portfolio',this)">Portfolio</button>
+    <button class="mtab" onclick="showMain('stocks',this)">Stocks</button>
   </div>
 
   <div class="main-view on" id="view-performers">
@@ -141,19 +161,37 @@ body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:14p
     <div class="holdings-list" id="holdings-list"></div>
   </div>
 
+  <!-- STOCKS: S&P 500 movers, own currency (USD), populated by movers.js -->
+  <div class="main-view" id="view-stocks">
+    <div class="universe-label" id="stocks-universe"></div>
+    <div class="period-tabs">
+      <button class="ptab on" onclick="showStockTab('1m',this)">1M</button>
+      <button class="ptab" onclick="showStockTab('6m',this)">6M</button>
+      <button class="ptab" onclick="showStockTab('ytd',this)">YTD</button>
+    </div>
+    <div class="period-panel on" id="spanel-1m"></div>
+    <div class="period-panel" id="spanel-6m"></div>
+    <div class="period-panel" id="spanel-ytd"></div>
+  </div>
+
   <div class="ledger-close" id="ledger-close"></div>
 
 </div>
 
-<script>document.write('<script src="etf_data.js?v=' + Date.now() + '"><\/script>');</script>
+<script src="etf_data.js?v=2026-07-11"></script>
+<script src="movers.js?v=2026-08-09"></script>
 <script>
-// ---- plain-English explainer text for the info buttons ----
+// ---- plain-English explainer text for the jargon info buttons ----
 const INFO_TEXT = {
   category: 'Every fund is compared only to similar funds, not the whole market. A semiconductor fund is judged against other tech funds, not against gold miners. That\'s what "category" means here.',
   returnRisk: 'How much gain you got for how bumpy the ride was. A fund that climbs steadily scores higher than one that swings wildly to reach the same gain. Above 1 means a smooth win; below 1 means it was a rough ride to get there.',
   week52: 'Where the price sits between its lowest and highest point over the past year. 100% means it\'s at a 12-month high right now. 0% means it\'s at a 12-month low.',
   aumFlow: 'AUM is simply the total money invested in the fund. If that\'s growing at the same time as the price, real investors are putting new money in — it\'s not just the existing price drifting up on its own.',
-  topHoldings: 'How much of the fund sits in just its 3 biggest positions. A high number means one company\'s bad day can drag the whole fund down with it.'
+  topHoldings: 'How much of the fund sits in just its 3 biggest positions. A high number means one company\'s bad day can drag the whole fund down with it.',
+  // --- Stocks-tab explainers ---
+  vsSector: 'Each stock is compared only to other companies in its own S&P 500 sector, not the whole market. A chipmaker is judged against other tech names, not against banks or oil producers.',
+  drivers: 'A quick tag for WHY it moved. "Fundamental" = real earnings or demand moved it. "Sentiment" = momentum or hype without matching numbers. "Mechanical" = index or passive-flow effects. "Optionality" = a bet on a future event not yet in the results.',
+  volume: 'How busy trading was versus this stock\'s own normal. "2× normal" means twice as many shares changed hands as usual — a big move on heavy volume reflects real conviction, not just a handful of thin trades.'
 };
 
 let idCounter = 0;
@@ -164,15 +202,6 @@ function fmtPct(n){
   return sign + n.toFixed(1) + '%';
 }
 function pctClass(n){ return n >= 0 ? 'pct-up' : 'pct-down'; }
-
-// Formats raw AUM (in EUR millions) into a display string, e.g. 2340 -> "€2.34B", 410 -> "€410M".
-function fmtAum(m){
-  if(m === undefined || m === null || m === '') return '';
-  const num = Number(m);
-  if(isNaN(num)) return '';
-  if(num >= 1000) return '\u20ac' + (num/1000).toFixed(2) + 'B';
-  return '\u20ac' + Math.round(num) + 'M';
-}
 
 function infoBtnHtml(id){
   return '<span class="info-btn" onclick="toggleInfo(\'' + id + '\')">i</span>';
@@ -185,6 +214,7 @@ function badgesHtml(fund){
   return fund.badges.map(function(b){
     if(b === 'Thin liquidity') return '<span class="badge badge-thin">Thin liquidity</span>';
     if(b === 'reversal watch') return '<span class="badge badge-trend">&#8634; reversal watch</span>';
+    if(b === 'high vol') return '<span class="badge badge-vol">high vol</span>';
     return '<span class="badge badge-thin">' + b + '</span>';
   }).join('');
 }
@@ -202,15 +232,28 @@ function fieldRow(label, value, infoKey, idPrefix){
   return out;
 }
 
-// Builds a drill-panel for a Performers-tab fund (tier-gated).
-// Tiers: "researched" (full depth: why it moved + top holdings) or
-// anything else, rendered as the lighter "STANDARD COVERAGE" tier
-// (no why-it-moved; top holdings still shown if present in the data).
+// ---- Driver chips row (Stocks, researched tier). Omitted if no drivers. ----
+function driversRow(drivers, idPrefix){
+  if(!drivers || !drivers.length) return '';
+  const id = nextId(idPrefix + '-i');
+  const chips = drivers.map(function(d){
+    let cls = 'drv';
+    if(d === 'fundamental') cls += ' fund';
+    else if(d === 'sentiment') cls += ' sent';
+    // mechanical / optionality -> base .drv styling
+    return '<span class="' + cls + '">' + d + '</span>';
+  }).join('');
+  const row = '<div class="drill-row"><b>Drivers' + infoBtnHtml(id) + '</b><div class="drivers">' + chips + '</div></div>';
+  return row + infoPopHtml(id, INFO_TEXT.drivers);
+}
+
+// ============ PERFORMERS (ETF) ============
+
 function buildPerformerDrill(fund, drillId){
   let html = '<div class="drill-panel" id="' + drillId + '">';
   html += fund.tier === 'researched'
     ? '<span class="tier-tag tier-researched">RESEARCHED</span>'
-    : '<span class="tier-tag tier-screener">STANDARD COVERAGE</span>';
+    : '<span class="tier-tag tier-screener">SCREENER DATA</span>';
   html += fieldRow('Holds', fund.holds, null, drillId);
   if(fund.tier === 'researched'){
     html += fieldRow('Why it moved', fund.whyItMoved, null, drillId);
@@ -218,9 +261,10 @@ function buildPerformerDrill(fund, drillId){
   html += fieldRow('vs category', fund.vsCategory, 'category', drillId);
   html += fieldRow('Return / Risk', fund.returnRisk, 'returnRisk', drillId);
   html += fieldRow('52w position', fund.week52, 'week52', drillId);
-  html += fieldRow('Fund size', fmtAum(fund.aumEurM), null, drillId);
   html += fieldRow('AUM flow', fund.aumFlow, 'aumFlow', drillId);
-  html += fieldRow('Top holdings', fund.topHoldings, 'topHoldings', drillId);
+  if(fund.tier === 'researched'){
+    html += fieldRow('Top holdings', fund.topHoldings, 'topHoldings', drillId);
+  }
   html += '</div>';
   return html;
 }
@@ -252,6 +296,79 @@ function renderPerformersPeriod(periodKey, containerId){
   document.getElementById(containerId).innerHTML = html;
 }
 
+// ============ STOCKS (S&P 500) ============
+// Same row skeleton + CSS as Performers, but a different field set:
+// does / whyItMoved / drivers / vsSector / week52 / volume. No AUM, no
+// Return/Risk, no top-holdings (single-stock has none of those).
+
+function buildStockDrill(fund, drillId){
+  let html = '<div class="drill-panel" id="' + drillId + '">';
+  html += fund.tier === 'researched'
+    ? '<span class="tier-tag tier-researched">RESEARCHED</span>'
+    : '<span class="tier-tag tier-screener">SCREENER DATA</span>';
+  html += fieldRow('Does', fund.does, null, drillId);
+  if(fund.tier === 'researched'){
+    html += fieldRow('Why it moved', fund.whyItMoved, null, drillId);
+    html += driversRow(fund.drivers, drillId);
+  }
+  html += fieldRow('vs sector', fund.vsSector, 'vsSector', drillId);
+  html += fieldRow('52w position', fund.week52, 'week52', drillId);
+  // volume present on 1M rows only; absent on 6M/YTD -> row silently omitted
+  html += fieldRow('Volume', fund.volume, 'volume', drillId);
+  html += '</div>';
+  return html;
+}
+
+function buildStockRankRow(fund, rank, drillId){
+  let html = '<div class="rank-row" onclick="toggleDrill(\'' + drillId + '\')">';
+  html += '<div class="rank-num">' + String(rank).padStart(2,'0') + '</div>';
+  html += '<div><div class="rank-ticker">' + fund.ticker + '<span class="rank-name">' + fund.name + '</span></div>';
+  html += '<div class="rank-tags"><span class="tag-cat">' + fund.category + '</span><span class="tag-ccy">USD</span>' + badgesHtml(fund) + '</div></div>';
+  html += '<div class="rank-pct ' + pctClass(fund.pct) + '">' + fmtPct(fund.pct) + '</div>';
+  html += '</div>';
+  html += buildStockDrill(fund, drillId);
+  return html;
+}
+
+function buildStockSection(title, cssClass, funds, idPrefix){
+  let html = '<div class="sec-label ' + cssClass + '"><h2>' + title + '</h2></div><div class="rank-list">';
+  funds.forEach(function(fund, i){
+    html += buildStockRankRow(fund, i + 1, idPrefix + '-' + i);
+  });
+  html += '</div>';
+  return html;
+}
+
+function renderStocksPeriod(periodKey, containerId){
+  const data = MOVERS.stocks[periodKey];
+  let html = buildStockSection('Best Performers', 'best', data.best, 's-' + periodKey + '-b');
+  html += buildStockSection('Worst Performers', 'worst', data.worst, 's-' + periodKey + '-w');
+  document.getElementById(containerId).innerHTML = html;
+}
+
+function renderStocks(){
+  const label = document.getElementById('stocks-universe');
+  // Graceful degradation: movers.js absent/stale -> tab shows a wait note,
+  // rest of the app is untouched.
+  if(typeof MOVERS === 'undefined' || !MOVERS.stocks){
+    label.innerHTML = 'Stock data not available yet';
+    document.getElementById('spanel-1m').innerHTML =
+      '<div class="empty-note">The weekly run will populate this.</div>';
+    return;
+  }
+  const m = MOVERS.meta || {};
+  let lbl = (m.universe || 'S&P 500') + ' &middot; <b>not all names buyable on Lightyear</b> &middot; returns in USD';
+  if(m.sourceStatus){
+    lbl += ' &middot; <span class="src-tag src-' + m.sourceStatus + '">' + m.sourceStatus + '</span>';
+  }
+  label.innerHTML = lbl;
+  renderStocksPeriod('1m', 'spanel-1m');
+  renderStocksPeriod('6m', 'spanel-6m');
+  renderStocksPeriod('ytd', 'spanel-ytd');
+}
+
+// ============ PORTFOLIO ============
+
 function buildHoldingsRow(fund, drillId){
   let html = '<div class="holdings-row" onclick="toggleDrill(\'' + drillId + '\')">';
   html += '<div><div class="holdings-ticker">' + fund.ticker + '<span class="holdings-name">' + fund.name + '</span></div></div>';
@@ -266,7 +383,6 @@ function buildHoldingsRow(fund, drillId){
   html += fieldRow('vs category', fund.vsCategory, 'category', drillId);
   html += fieldRow('Return / Risk', fund.returnRisk, 'returnRisk', drillId);
   html += fieldRow('52w position', fund.week52, 'week52', drillId);
-  html += fieldRow('Fund size', fmtAum(fund.aumEurM), null, drillId);
   html += fieldRow('AUM flow', fund.aumFlow, 'aumFlow', drillId);
   html += fieldRow('Top holdings', fund.topHoldings, 'topHoldings', drillId);
   html += '</div>';
@@ -283,8 +399,12 @@ function renderPortfolio(){
 
 function renderMeta(){
   const m = LEDGER_DATA.meta;
-  document.getElementById('meta-bar').innerHTML =
-    '<span>' + m.fundsTracked + ' funds tracked</span><span class="dot">&middot;</span><span>Data as of ' + m.asOf + '</span>';
+  let html = '<span>' + m.fundsTracked + ' funds tracked</span><span class="dot">&middot;</span><span>Data as of ' + m.asOf + '</span>';
+  // FX chip: ambient EUR/USD reference from movers.js. Hides if absent.
+  if(typeof MOVERS !== 'undefined' && MOVERS.meta && MOVERS.meta.fxRate){
+    html += '<span class="dot">&middot;</span><span class="fx-chip">' + MOVERS.meta.fxRate + '</span>';
+  }
+  document.getElementById('meta-bar').innerHTML = html;
 }
 
 function renderClose(){
@@ -298,11 +418,21 @@ function showMain(id, btn){
   document.querySelectorAll('.main-view').forEach(function(v){v.classList.remove('on');});
   document.getElementById('view-' + id).classList.add('on');
 }
+// Scoped to #view-performers so the Stocks period tabs don't cross-talk.
 function showTab(id, btn){
-  document.querySelectorAll('.ptab').forEach(function(b){b.classList.remove('on');});
+  const view = document.getElementById('view-performers');
+  view.querySelectorAll('.ptab').forEach(function(b){b.classList.remove('on');});
   btn.classList.add('on');
-  document.querySelectorAll('.period-panel').forEach(function(p){p.classList.remove('on');});
+  view.querySelectorAll('.period-panel').forEach(function(p){p.classList.remove('on');});
   document.getElementById('panel-' + id).classList.add('on');
+}
+// Independent period switching for the Stocks view.
+function showStockTab(id, btn){
+  const view = document.getElementById('view-stocks');
+  view.querySelectorAll('.ptab').forEach(function(b){b.classList.remove('on');});
+  btn.classList.add('on');
+  view.querySelectorAll('.period-panel').forEach(function(p){p.classList.remove('on');});
+  document.getElementById('spanel-' + id).classList.add('on');
 }
 function toggleDrill(id){
   document.getElementById(id).classList.toggle('open');
@@ -316,6 +446,7 @@ renderPerformersPeriod('1m', 'panel-1m');
 renderPerformersPeriod('6m', 'panel-6m');
 renderPerformersPeriod('ytd', 'panel-ytd');
 renderPortfolio();
+renderStocks();
 renderClose();
 </script>
 </body>
