@@ -1,16 +1,17 @@
 ---
 name: "etf-news"
-description: "Weekly update: ranks best/worst ETFs from the Lightyear universe (etf_data.js) AND best/worst S&P 500 stock movers (movers.js) using justETF + stockanalysis.com data via Chrome MCP"
+description: "Weekly update: ranks best/worst ETFs (etf_data.js), S&P 500 stock movers (movers.js), AND Mag7 scorecard (mag7.js) via Chrome MCP + WebSearch"
 ---
 
-# Weekly ETF + Stock Movers Pipeline
+# Weekly ETF + Stock Movers + Mag7 Pipeline
 
-This skill produces TWO files in a single run:
+This skill produces THREE files in a single run:
 
 1. **`etf_data.js`** — Lightyear ETF universe best/worst performers (EUR yardstick)
 2. **`movers.js`** — S&P 500 individual stock movers for the Stocks tab (USD)
+3. **`mag7.js`** — Magnificent Seven scorecard with verdicts (USD)
 
-Both live in `~/Documents/ETFNews`. The app is at `https://robertvamosi85-ui.github.io/investment-brief`.
+All live in `~/Documents/ETFNews`. The app is at `https://robertvamosi85-ui.github.io/investment-brief`.
 
 ---
 
@@ -188,18 +189,97 @@ hardcoded data, then run it to generate `movers.js`.
 
 ---
 
+## STEP 2.5 — Build mag7.js (Magnificent Seven scorecard)
+
+### Universe: fixed 7 stocks
+
+AAPL, MSFT, AMZN, GOOGL, META, NVDA, TSLA — hardcoded, no discovery step.
+
+### Provenance rule
+
+Never state a number you didn't read this session. Prefix estimates with `~`
+and say why. If a figure can't be sourced, write `"n/a — not sourced this week"`
+rather than a plausible value.
+
+### Data collection
+
+All via Chrome MCP + WebSearch (sandbox blocked from finance sites):
+
+1. **Prices + weekly change**: stockanalysis.com chart API
+   (`/api/charts/s/{ticker}/1Y/l`) — last close price and 1-week return.
+2. **P/E ratios (TTM)**: Navigate to each stock's page on stockanalysis.com
+   via Chrome, or WebSearch for "[ticker] PE ratio TTM". Mark with `~` if
+   approximate. Write both `pe` ("~25x") and `pe_plain` ("paying ~25 years
+   of annual earnings").
+3. **Earnings dates**: WebSearch for "[ticker] next earnings date 2026".
+   Determine `earnings_proximity`: imminent (this week), soon (within 6 weeks),
+   upcoming (within quarter), far (beyond quarter).
+4. **Recent news / earnings results**: WebSearch for each stock's latest
+   quarter results. Write 2–3 sentence `news` with mechanism (who pays whom,
+   condition, falsifier). Include revenue, EPS, beat/miss, key segment data.
+5. **Analyst consensus targets**: WebSearch or Chrome. If not found, use
+   `"n/a — not sourced this week"` per provenance rule.
+6. **EUR/USD rate**: reuse from STEP 2 if same session.
+
+### Fields per stock (match mag7.js schema)
+
+```js
+{
+  name: "Apple",
+  ticker: "AAPL",
+  price: "$308.91",
+  change: "-7.24%",
+  pe: "~35x",
+  pe_plain: "paying ~35 years of annual earnings",
+  target: "$600–$750",       // or "n/a — not sourced this week"
+  theme: "Services plateau, AI features nascent",
+  news: "Q3 FY2026 revenue beat at $109.4B (+16%)...",
+  earnings: "~late Oct 2026",
+  earnings_proximity: "far", // imminent | soon | upcoming | far
+  verdict: "HOLD",           // BUY | HOLD | WATCH | CAUTION
+  verdict_reason: "One sentence — condition or falsifier, not analyst boilerplate."
+}
+```
+
+### Verdict guidelines
+
+- **BUY**: Growth justifies or exceeds multiple; clear catalyst visible.
+- **HOLD**: Solid business but multiple is fair or near-term risks balance upside.
+- **WATCH**: Interesting but unresolved tension (e.g. growth vs cash burn).
+- **CAUTION**: Fundamentals don't support the price; thesis depends on unproven revenue.
+
+Verdict is the builder's editorial call based on sourced data. It is NOT
+financial advice — the app footer says "BUSINESS LITERACY TOOL, NOT INVESTMENT
+ADVICE."
+
+### Write mag7.js
+
+Output schema:
+```js
+const MAG7 = {
+  meta: { asOf: "[date]", universe: "Mag7", fxRate: "EUR/USD [rate]" },
+  stocks: [ ... ]
+};
+```
+
+Use `build_mag7.py` as the builder script — hardcode all collected data, run
+to generate `mag7.js`. Validate with `node --check mag7.js`.
+
+---
+
 ## STEP 3 — Validate and hand off
 
-1. Run `node --check etf_data.js` and `node --check movers.js`.
+1. Run `node --check etf_data.js`, `node --check movers.js`, `node --check mag7.js`.
 2. Verify entry counts: ETFs = 10 best + 10 worst × 3 periods + 7 portfolio;
-   Stocks = 5 best + 5 worst × 3 periods = 30.
-3. Verify all researched entries have `whyItMoved` and `drivers`.
-4. Do NOT touch git — stop once both files are written and validated.
+   Stocks = 5 best + 5 worst × 3 periods = 30; Mag7 = 7 stocks.
+3. Verify all researched entries have `whyItMoved` and `drivers` (ETF + Stocks).
+4. Verify all Mag7 entries have `verdict`, `verdict_reason`, `news`, `pe`.
+5. Do NOT touch git — stop once all three files are written and validated.
 
 End the session by providing the manual push command for Terminal:
 
 ```
-cd ~/Documents/ETFNews && rm -f .git/index.lock .git/HEAD.lock .git/packed-refs.lock && git add etf_data.js movers.js && git commit -m "Weekly ETF + stock data update — [date]" && git push
+cd ~/Documents/ETFNews && rm -f .git/index.lock .git/HEAD.lock .git/packed-refs.lock && git add etf_data.js movers.js mag7.js && git commit -m "Weekly ETF + stock + Mag7 data update — [date]" && git push
 ```
 
 ---
@@ -209,11 +289,13 @@ cd ~/Documents/ETFNews && rm -f .git/index.lock .git/HEAD.lock .git/packed-refs.
 - **Sandbox is blocked** from justETF and stockanalysis.com. All scraping must
   go through Chrome MCP (`mcp__claude-in-chrome__*` tools). Navigate in Chrome
   tabs, execute JS to extract data, store in window variables.
-- **Builder scripts** (`build_etf_data.py`, `build_movers.py`): hardcode all
-  Chrome-collected data into Python dicts, generate the JS files. This is more
-  reliable than trying to run the full pipeline programmatically.
+- **Builder scripts** (`build_etf_data.py`, `build_movers.py`, `build_mag7.py`):
+  hardcode all Chrome-collected data into Python dicts, generate the JS files.
+  This is more reliable than trying to run the full pipeline programmatically.
 - **AUM history**: update `aum_history.json` with a new snapshot containing AUM
   for all ETF finalists + portfolio funds.
 - **As-of date**: use the last completed trading day before the run date
   (typically Friday if running on Sunday).
+- **mag7.js is independent** from the Investment Brief's `content.js`. Do not
+  cross-reference or merge data between them.
 
